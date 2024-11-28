@@ -7,14 +7,13 @@ This repository contains the tools and data required for processing cardiac MRI 
 ## Repository Structure
 
 - **GP_InfDE/**
-  - **Resources/**
-    - **Code/**: Contains Python notebooks for data processing
-      - `1-Split_NIFTI_Into_Slices.ipynb`
-      - `2-Unify_Masks_Values.ipynb`
-      - `3-Histogram_Equalization.ipynb`
-    - **Data/**: Placeholder for dataset files
-      - `<example data files>`
-      - `README.md`: Instructions for using the data
+  - **Code/**: Contains Python notebooks for data processing
+    - `1-Split_NIFTI_Into_Slices.ipynb`
+    - `2-Unify_Masks_Values.ipynb`
+    - `3-Histogram_Equalization.ipynb`
+  - **Data/**: Placeholder for dataset files
+    - `<example data files>`
+    - `README.md`: Instructions for using the data
   - **Documents/**: Contains Meeting minutes and other documentation
     - **Meeting Minutes/**
       - `Meeting1.pdf`
@@ -38,7 +37,7 @@ This repository contains the tools and data required for processing cardiac MRI 
 
 #### Notebook 1: Split NIFTI into Slices
 
-1. Navigate to `Resources/Code/1-Split_NIFTI_Into_Slices.ipynb`.
+1. Navigate to `GP_InfDE/Code/1-Split_NIFTI_Into_Slices.ipynb`.
 2. Open the notebook in your Python environment (e.g., Jupyter Notebook).
 3. Set the path to the dataset directory in the first cell:
 
@@ -54,7 +53,7 @@ This repository contains the tools and data required for processing cardiac MRI 
 
 #### Notebook 2: Unify Mask Values
 
-1. Navigate to `Resources/Code/2-Unify_Masks_Values.ipynb`.
+1. Navigate to `GP_InfDE/Code/2-Unify_Masks_Values.ipynb`.
 2. Open the notebook in your Python environment.
 3. Set the path to the dataset directory in the first cell:
 
@@ -80,7 +79,7 @@ This repository contains the tools and data required for processing cardiac MRI 
 
 #### Notebook 3: Histogram Equalization
 
-1. Navigate to `Resources/Code/3-Histogram_Equalization.ipynb`.
+1. Navigate to `GP_InfDE/Code/3-Histogram_Equalization.ipynb`.
 2. Open the notebook in your Python environment.
 3. Set the paths for:
    - **Input folder**: e.g., `All Train Slices` or `All Test Slices`
@@ -102,7 +101,7 @@ This repository contains the tools and data required for processing cardiac MRI 
 Ensure you have the following installed:
 
 - Python 3.x
-- Libraries: `numpy`, `pandas`, `matplotlib`, etc.
+- Libraries: `numpy`, `skimage`, `matplotlib`, etc.
 
 To install dependencies, use the following command:
 
