@@ -96,6 +96,21 @@ This repository contains the tools and data required for processing cardiac MRI 
 
 ---
 
+### Step 3: Left Ventricle Localization
+
+1. Download the model from [here](https://github.com/Project-MONAI/model-zoo/releases/download/hosting_storage_v1/ventricular_short_axis_3label_v0.3.2.zip) and extract it.
+2. Download the notebook `GP_InfDE/Code/4-Left_Ventricle_Localisation.ipynb` and place it inside the `docs` directory of the downloaded model.
+3. Open the notebook in your Python environment.
+4. Set the following paths in the second cell:
+
+   ```python
+   # Input and output directories
+   input_dir = r"Set this to the directory where your slices are stored"
+   output_rois_dir = r"Set this to the directory where you want to store the localized slices"
+   output_labels_dir = r"Set this to the directory where you want to store the localized labels"
+   output_visual_dir = r"Set this to the directory where you want to store the visualisations of the localized data"
+
+
 ## Dependencies
 
 Ensure you have the following installed:
