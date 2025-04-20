@@ -5,7 +5,7 @@ import cv2
 import matplotlib.pyplot as plt
 from typing import Dict, List, Tuple, Any
 from mask_simulator.ImageProcessor import ImageProcessor
-from  mask_extractor.extract_masks import get_random_mask_slice
+from  mask_extractor.extract_masks import get_random_mask_slice, add_blood_pool_to_image
 import logging
 
 
@@ -70,7 +70,7 @@ def generate_cardiac_image(
 
     else:
         # Load a random myocardium mask
-        mayocardium_mask = get_random_mask_slice(all_masks, 'mayocardium_masks')
+        mayocardium_mask, blood_pool_mask = get_random_mask_slice(all_masks, 'mayocardium_masks')
         # map the value from 2 to 150
         array = np.copy(mayocardium_mask)
         array[array == 2] = 150
@@ -120,6 +120,14 @@ def generate_cardiac_image(
     final_image[final_image == 150] = mayocardium_color
     final_image[final_image == 80] = blood_pool_color
 
+    # Overlay blood pool mask if available
+    if mayocardium_type != 'simulated':
+        final_image = add_blood_pool_to_image(
+            final_image, 
+            blood_pool_mask, 
+            blood_pool_color=blood_pool_color
+        )
+    
 
     
     # Store intermediate results
@@ -170,6 +178,8 @@ def _plot_results(results: dict):
     plt.tight_layout()
     plt.show()
 
+
+    
 def generate_multible_cardiac_images(
     number_of_images: int,
     output_dir: str,

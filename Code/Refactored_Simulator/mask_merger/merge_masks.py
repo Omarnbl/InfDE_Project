@@ -4,7 +4,7 @@ import os
 import numpy as np
 import cv2
 from typing import Dict, List, Tuple, Any
-from mask_extractor.extract_masks import get_random_mask_slice
+from mask_extractor.extract_masks import get_random_mask_slice, add_blood_pool_to_image
 # import logging
 import logging
 
@@ -45,7 +45,8 @@ def merge_masks(mayocardial_mask: np.ndarray, infarction_mask: np.ndarray, searc
 
 
 def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: int, search_range, 
-                                   rotation_angles, visualize_flag, mayocardium_vlue: int = 2, infarction_value: int = 3 ) -> List[np.ndarray]:
+                                   rotation_angles, visualize_flag, mayocardium_vlue: int = 2, infarction_value: int = 3, 
+                                   blood_pool_value: int =1) -> List[np.ndarray]:
     """
     Generate a number of merged masks using the input masks.
     
@@ -64,12 +65,14 @@ def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: i
     
     for _ in range(number_of_masks):
         # Select two random masks
-        mayocardial_mask = get_random_mask_slice(all_masks, 'mayocardium_masks')
-        infarction_mask = get_random_mask_slice(all_masks, 'infarction_masks')
+        mayocardial_mask, blood_pool_mask = get_random_mask_slice(all_masks, 'mayocardium_masks')
+        infarction_mask, _ = get_random_mask_slice(all_masks, 'infarction_masks')
         # Merge the masks
         merged_mask = merge_masks(mayocardial_mask= mayocardial_mask, infarction_mask= infarction_mask,
                                    search_range= search_range, rotation_angles= rotation_angles,
                                      visualize_flag= visualize_flag, mayocardium_vlue= mayocardium_vlue, infarction_value= infarction_value)
+        merged_mask = add_blood_pool_to_image(merged_mask, blood_pool_mask, blood_pool_value)
+        
         merged_masks.append(merged_mask)
     
 

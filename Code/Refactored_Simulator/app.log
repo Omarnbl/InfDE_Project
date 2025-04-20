@@ -1,30 +1,60 @@
-2025-04-20 02:34:04,785 - INFO - Generating image 250x250
-2025-04-20 02:34:05,159 - DEBUG - Initial seed point: [94 39], Center: (117.30468614905759, 132.46083347743385)
-2025-04-20 02:34:05,160 - INFO - Generated 5 seed points
-2025-04-20 02:34:05,175 - INFO - Generating image 250x250
-2025-04-20 02:34:05,554 - DEBUG - Initial seed point: [150 201], Center: (118.42768213208832, 128.2268261842233)
-2025-04-20 02:34:05,555 - INFO - Generated 48 seed points
-2025-04-20 02:34:05,593 - INFO - Generating image 250x250
-2025-04-20 02:34:05,987 - DEBUG - Initial seed point: [100  50], Center: (125.28343500703895, 124.94199906147348)
-2025-04-20 02:34:05,988 - INFO - Generated 79 seed points
-2025-04-20 02:34:06,463 - INFO - Generating image 250x250
-2025-04-20 02:34:06,801 - DEBUG - Initial seed point: [79 74], Center: (117.85566502463054, 123.19076354679802)
-2025-04-20 02:34:06,802 - INFO - Generated 24 seed points
-2025-04-20 02:34:06,859 - INFO - Generating image 250x250
-2025-04-20 02:34:07,234 - DEBUG - Initial seed point: [146  31], Center: (121.67363904532046, 126.22874765352641)
-2025-04-20 02:34:07,234 - INFO - Generated 46 seed points
-2025-04-20 02:34:07,424 - INFO - Generating image 250x250
-2025-04-20 02:34:07,776 - DEBUG - Initial seed point: [198 114], Center: (128.66228360609213, 131.64440450288527)
-2025-04-20 02:34:07,777 - INFO - Generated 71 seed points
-2025-04-20 02:34:07,956 - INFO - Generating image 250x250
-2025-04-20 02:34:08,299 - DEBUG - Initial seed point: [ 41 110], Center: (118.05561180777319, 121.15593114728561)
-2025-04-20 02:34:08,300 - INFO - Generated 70 seed points
-2025-04-20 02:34:08,372 - INFO - Generating image 250x250
-2025-04-20 02:34:08,702 - DEBUG - Initial seed point: [126  59], Center: (138.48097951640227, 121.67488064068998)
-2025-04-20 02:34:08,702 - INFO - Generated 15 seed points
-2025-04-20 02:34:08,753 - INFO - Generating image 250x250
-2025-04-20 02:34:09,115 - DEBUG - Initial seed point: [209 117], Center: (118.34520755597015, 123.14569729477611)
-2025-04-20 02:34:09,115 - INFO - Generated 79 seed points
-2025-04-20 02:34:09,255 - INFO - Generating image 250x250
-2025-04-20 02:34:09,624 - DEBUG - Initial seed point: [ 53 100], Center: (127.96357916812303, 123.78259349877665)
-2025-04-20 02:34:09,625 - INFO - Generated 40 seed points
+2025-04-20 05:05:10,100 - INFO - Generating image 250x250
+2025-04-20 05:05:10,421 - DEBUG - Initial seed point: [125 208], Center: (124.82674239237133, 119.43787687561351)
+2025-04-20 05:05:10,423 - INFO - Generated 78 seed points
+2025-04-20 05:05:10,523 - INFO - Generating image 250x250
+2025-04-20 05:05:10,836 - DEBUG - Initial seed point: [168  54], Center: (119.03975346687211, 123.2371854134566)
+2025-04-20 05:05:10,836 - INFO - Generated 56 seed points
+2025-04-20 05:05:10,916 - INFO - Generating image 250x250
+2025-04-20 05:05:11,222 - DEBUG - Initial seed point: [177 108], Center: (128.92422502870264, 125.6816877152698)
+2025-04-20 05:05:11,222 - INFO - Generated 24 seed points
+2025-04-20 05:05:11,281 - INFO - Generating image 250x250
+2025-04-20 05:05:11,599 - DEBUG - Initial seed point: [ 54 153], Center: (124.84862865947612, 131.18163328197227)
+2025-04-20 05:05:11,601 - INFO - Generated 51 seed points
+2025-04-20 05:05:11,730 - INFO - Generating image 250x250
+2025-04-20 05:05:12,038 - DEBUG - Initial seed point: [122  66], Center: (129.45950217305412, 121.91884630580797)
+2025-04-20 05:05:12,038 - INFO - Generated 44 seed points
+2025-04-20 05:05:12,093 - INFO - Generating image 250x250
+2025-04-20 05:05:12,460 - DEBUG - Initial seed point: [ 49 126], Center: (118.23442163335443, 132.2166953061409)
+2025-04-20 05:05:12,460 - INFO - Generated 48 seed points
+2025-04-20 05:05:12,538 - INFO - Generating image 250x250
+2025-04-20 05:05:12,870 - DEBUG - Initial seed point: [63 69], Center: (125.92655006101458, 120.21215642977512)
+2025-04-20 05:05:12,870 - INFO - Generated 79 seed points
+2025-04-20 05:05:12,931 - INFO - Generating image 250x250
+2025-04-20 05:05:13,229 - DEBUG - Initial seed point: [182  79], Center: (129.45466414256805, 124.17559892943403)
+2025-04-20 05:05:13,230 - INFO - Generated 73 seed points
+2025-04-20 05:05:13,313 - INFO - Generating image 250x250
+2025-04-20 05:05:13,631 - DEBUG - Initial seed point: [217 171], Center: (121.01499940241425, 123.13804230907135)
+2025-04-20 05:05:13,631 - INFO - Generated 27 seed points
+2025-04-20 05:05:13,667 - INFO - Generating image 250x250
+2025-04-20 05:05:13,952 - DEBUG - Initial seed point: [88 82], Center: (125.34941503532954, 123.93032549519286)
+2025-04-20 05:05:13,952 - INFO - Generated 79 seed points
+2025-04-20 05:05:14,476 - INFO - Generating image 250x250
+2025-04-20 05:05:14,777 - DEBUG - Initial seed point: [180 161], Center: (133.03329589216943, 126.22785622593068)
+2025-04-20 05:05:14,778 - INFO - Generated 36 seed points
+2025-04-20 05:05:14,887 - INFO - Generating image 250x250
+2025-04-20 05:05:15,185 - DEBUG - Initial seed point: [153 212], Center: (134.57566549167376, 142.816701106114)
+2025-04-20 05:05:15,185 - INFO - Generated 11 seed points
+2025-04-20 05:05:15,209 - INFO - Generating image 250x250
+2025-04-20 05:05:15,483 - DEBUG - Initial seed point: [117 188], Center: (122.03653202984307, 130.8417802932853)
+2025-04-20 05:05:15,484 - INFO - Generated 42 seed points
+2025-04-20 05:05:15,586 - INFO - Generating image 250x250
+2025-04-20 05:05:15,876 - DEBUG - Initial seed point: [149  76], Center: (121.37898525882757, 121.8344189235516)
+2025-04-20 05:05:15,877 - INFO - Generated 47 seed points
+2025-04-20 05:05:15,935 - INFO - Generating image 250x250
+2025-04-20 05:05:16,270 - DEBUG - Initial seed point: [99 45], Center: (127.34618483852972, 117.75367259654125)
+2025-04-20 05:05:16,270 - INFO - Generated 75 seed points
+2025-04-20 05:05:16,539 - INFO - Generating image 250x250
+2025-04-20 05:05:16,852 - DEBUG - Initial seed point: [54 75], Center: (122.51540616246498, 124.97759103641457)
+2025-04-20 05:05:16,852 - INFO - Generated 76 seed points
+2025-04-20 05:05:16,934 - INFO - Generating image 250x250
+2025-04-20 05:05:17,214 - DEBUG - Initial seed point: [169  80], Center: (114.95563188779161, 117.76456275941034)
+2025-04-20 05:05:17,215 - INFO - Generated 30 seed points
+2025-04-20 05:05:17,252 - INFO - Generating image 250x250
+2025-04-20 05:05:17,552 - DEBUG - Initial seed point: [211 114], Center: (123.4583573026526, 127.87663790348354)
+2025-04-20 05:05:17,552 - INFO - Generated 60 seed points
+2025-04-20 05:05:17,685 - INFO - Generating image 250x250
+2025-04-20 05:05:18,011 - DEBUG - Initial seed point: [212 139], Center: (126.50090452261307, 121.19190954773869)
+2025-04-20 05:05:18,011 - INFO - Generated 79 seed points
+2025-04-20 05:05:24,772 - INFO - Generating image 250x250
+2025-04-20 05:05:25,179 - DEBUG - Initial seed point: [75 60], Center: (114.96532194824431, 119.31916005924893)
+2025-04-20 05:05:25,180 - INFO - Generated 13 seed points

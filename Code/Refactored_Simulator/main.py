@@ -49,7 +49,8 @@ def main(config_path: str):
         rotation_angles=np.arange(0, 360, merge_params['rotation_step']),
         visualize_flag=merge_params['visualize_flag'] ,
         mayocardium_vlue = merge_params['mayocardium_vlue'],
-        infarction_value = merge_params['infarction_value']
+        infarction_value = merge_params['infarction_value'], 
+        blood_pool_value = merge_params['blood_pool_value']
     )
 
     # Generate multiple cardiac images
