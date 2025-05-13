@@ -7,6 +7,8 @@ from typing import Dict, List, Tuple, Any
 from mask_simulator.ImageProcessor import ImageProcessor
 from  mask_extractor.extract_masks import get_random_mask_slice, add_blood_pool_to_image
 import logging
+import time
+from datetime import datetime
 
 
 
@@ -222,12 +224,18 @@ def generate_multible_cardiac_images(
             no_flow_color=no_flow_color
         )
         # Generate multiple cardiac images
+        # save the time the image was generated
+        # timestamp = time.strftime("%Y-%m-%d-%H-%M-%S")
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
+        # calculate the percentage of infarction to mayocardium
+        # infarction_percentage = int(np.sum(custom_image == infarction_color) / np.sum(custom_image != 0 ) * 100)
         output_dir = r"E:\SBME\Graduation Project\Datasets\Simulated_data\simulated"
         # Ensure the directory exists
         os.makedirs(output_dir, exist_ok=True)
         # Save the image
-        cv2.imwrite(os.path.join(output_dir, f"custom_image_{i}.png"), custom_image)
+        # Save the image with a timestamp
+        cv2.imwrite(os.path.join(output_dir, f"{mayocardium_type}_simulated_{timestamp}.png"), custom_image)
         # save npy
-        np.save(os.path.join(output_dir, f"custom_image_{i}.npy"), custom_image)
+        np.save(os.path.join(output_dir, f"{mayocardium_type}_simulated_{timestamp}.npy"), custom_image)
         print(f"Image {i} saved successfully!")
         # Save the image

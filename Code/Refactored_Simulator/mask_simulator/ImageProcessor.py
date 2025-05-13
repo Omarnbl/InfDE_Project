@@ -3,6 +3,7 @@ import numpy as np
 import cv2
 import random
 import logging
+import time
 
 class ImageProcessor:
     """
@@ -303,9 +304,6 @@ class ImageProcessor:
                 
         return filtered_image
 
-    # ----------------------
-    # Complex Structure Generation
-    # ----------------------
 
     def generate_ring_with_cavity_and_cloud_infarctions(
             self, height: int, width: int, 

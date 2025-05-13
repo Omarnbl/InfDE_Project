@@ -106,8 +106,8 @@ class MaskAlignment:
         Returns:
             np.ndarray: Rotated mask with original dimensions
         """
-        rotated = cv2.warpAffine(mask.astype(np.float32), rotation_matrix, dimensions)
-        return (rotated > 0.5).astype(np.uint8)
+        rotated = cv2.warpAffine(mask, rotation_matrix, dimensions, flags=cv2.INTER_NEAREST)
+        return rotated.astype(np.uint8)
 
     @staticmethod
     def _rotate_adjust_size(mask: np.ndarray, 
@@ -216,6 +216,8 @@ class MaskAlignment:
         shifted_mask = self.shift_mask(
             infarction_mask, best_params['shift_x'], best_params['shift_y']
         )
+        # log the unique values of the shifted mask
+        logging.debug(f"Unique values in shifted mask: {np.unique(shifted_mask)}")
         
         aligned_infarction_mask = self.rotate_mask_around_point(
             shifted_mask, 
@@ -224,7 +226,7 @@ class MaskAlignment:
         )
         # log the unique values of the aligned infarction mask
         logging.debug(f"Unique values in aligned infarction mask: {np.unique(aligned_infarction_mask)}")
-        # Merge the masks
+        # Merge the maskse
         merged_mask = self._merge_masks(mayocardial_mask, aligned_infarction_mask)
         logging.debug(f"Unique values in merged mask: {np.unique(merged_mask)}")
         
@@ -249,7 +251,8 @@ class MaskAlignment:
         """
         # Create a binary mask of the mayocardial region
         mayocardial_region = (mayocardial_mask > 0).astype(np.uint8)
-        
+        # log the unique values of the aligned infarction mask
+        logging.debug(f"Unique values in aligned infarction mask: {np.unique(aligned_infarction_mask)}")
         # Create the merged mask starting with the mayocardial mask
         merged_mask = mayocardial_mask.copy()
         
@@ -436,7 +439,7 @@ class MaskAlignment:
 
         return (x, y), radius
 
-    def change_mask_pixel_values(self, mask: np.ndarray, mayocardium_vlue: int, infarction_value: int) -> np.ndarray:
+    def change_mask_pixel_values(self, mask: np.ndarray, mayocardium_vlue: int, infarction_value: int , no_flow_value : int) -> np.ndarray:
         """
         Change pixel values of a mask to specified values.
         
@@ -449,6 +452,8 @@ class MaskAlignment:
             np.ndarray: Mask with updated pixel values
         """
         new_mask = mask.copy()
-        new_mask[new_mask == 2] = infarction_value
-        new_mask[new_mask == 1] = mayocardium_vlue
+        new_mask[new_mask == 4] = no_flow_value
+        new_mask[new_mask == 3] = infarction_value
+        new_mask[new_mask == 2] = mayocardium_vlue
+
         return new_mask

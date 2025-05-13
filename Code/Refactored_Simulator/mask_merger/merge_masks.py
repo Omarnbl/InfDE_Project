@@ -7,6 +7,9 @@ from typing import Dict, List, Tuple, Any
 from mask_extractor.extract_masks import get_random_mask_slice, add_blood_pool_to_image
 # import logging
 import logging
+import time
+from datetime import datetime
+
 
 logging.basicConfig(level=logging.DEBUG, 
                     format='%(asctime)s - %(levelname)s - %(message)s',
@@ -16,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG,
 
 def merge_masks(mayocardial_mask: np.ndarray, infarction_mask: np.ndarray, search_range: int = 10,
                  rotation_angles: np.ndarray = np.arange(0, 360, 30), visualize_flag: bool = 0,
-                   mayocardium_vlue: int =2, infarction_value: int = 3) -> np.ndarray:
+                   mayocardium_vlue: int =2, infarction_value: int = 3, no_flow_value: int = 4 ) -> np.ndarray:
     """
     Generate a merged mask by aligning the input masks.
 
@@ -40,13 +43,16 @@ def merge_masks(mayocardial_mask: np.ndarray, infarction_mask: np.ndarray, searc
     logging.debug(f"Unique values in mayocardial_mask: {np.unique(mayocardial_mask)}")
     logging.debug(f"Unique values in infarction_mask: {np.unique(infarction_mask)}")
     merged_mask = mask_alignment._get_merged_mask(mayocardial_mask, infarction_mask, mayocardium_center, search_range, rotation_angles, visualize_flag)
-    processed_mask = mask_alignment.change_mask_pixel_values(merged_mask, mayocardium_vlue, infarction_value)
+    processed_mask = mask_alignment.change_mask_pixel_values(mask= merged_mask, mayocardium_vlue= mayocardium_vlue, infarction_value= infarction_value, no_flow_value= no_flow_value)
+    # log the values of the infarction and mayocardium value
+    logging.debug(f"infarction_value: {infarction_value}, mayocardium_vlue: {mayocardium_vlue}, no_flow_value: {no_flow_value}")
+    logging.debug(f"Unique values in merged_mask: {np.unique(merged_mask)}")
     return processed_mask
 
 
 def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: int, search_range, 
                                    rotation_angles, visualize_flag, mayocardium_vlue: int = 2, infarction_value: int = 3, 
-                                   blood_pool_value: int =1) -> List[np.ndarray]:
+                                   blood_pool_value: int =1, no_flow_value: int = 4) -> List[np.ndarray]:
     """
     Generate a number of merged masks using the input masks.
     
@@ -62,6 +68,11 @@ def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: i
         List[np.ndarray]: List of merged masks
     """
     merged_masks = []
+    output_dir = r"E:\SBME\Graduation_Project\Datasets\Simulated_data\merged"
+
+    # Ensure the directory exists
+    os.makedirs(output_dir, exist_ok=True)
+
     
     for _ in range(number_of_masks):
         # Select two random masks
@@ -70,22 +81,27 @@ def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: i
         # Merge the masks
         merged_mask = merge_masks(mayocardial_mask= mayocardial_mask, infarction_mask= infarction_mask,
                                    search_range= search_range, rotation_angles= rotation_angles,
-                                     visualize_flag= visualize_flag, mayocardium_vlue= mayocardium_vlue, infarction_value= infarction_value)
+                                     visualize_flag= visualize_flag, mayocardium_vlue= mayocardium_vlue, infarction_value= infarction_value,
+                                     no_flow_value= no_flow_value)
         merged_mask = add_blood_pool_to_image(merged_mask, blood_pool_mask, blood_pool_value)
         
         merged_masks.append(merged_mask)
-    
+        
+        # timestamp = time.strftime("%Y-%m-%d-%H-%M")
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
+        # calculate the precetage of infarction to mayocardium
+        # infarction_percentage = int(np.sum(merged_mask == infarction_value) / np.sum( merged_mask != 0) * 100)
 
-    output_dir = r"E:\SBME\Graduation Project\Datasets\Simulated_data\merged"
+        np.save(os.path.join(output_dir, f"real_real_{timestamp}.npy"), merged_mask)
+        cv2.imwrite(os.path.join(output_dir, f"real_real_{timestamp}.png"), merged_mask)
+        print(f"Merged mask {timestamp} saved successfully!")
 
-    # Ensure the directory exists
-    os.makedirs(output_dir, exist_ok=True)
 
-    # Save the merged masks to the specified directory
-    for i, merged_mask in enumerate(merged_masks):
-        cv2.imwrite(os.path.join(output_dir, f"merged_mask_{i}.png"), merged_mask)
-        # save as npy
-        np.save(os.path.join(output_dir, f"merged_mask_{i}.npy"), merged_mask)
-        print(f"Merged mask {i} saved successfully!")
+    # # Save the merged masks to the specified directory
+    # for i, merged_mask in enumerate(merged_masks):
+    #     cv2.imwrite(os.path.join(output_dir, f"merged_mask_{i}.png"), merged_mask)
+    #     # save as npy
+    #     np.save(os.path.join(output_dir, f"merged_mask_{i}.npy"), merged_mask)
+    #     print(f"Merged mask {i} saved successfully!")
 
     return merged_masks

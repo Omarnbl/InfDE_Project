@@ -57,6 +57,9 @@ def get_random_mask_slice(all_masks: Dict[str, Any], mask_type) -> np.ndarray:
     blood_pool_mask_slice = blood_pool_mask[slice_idx]
     logging.debug(f"Selected slice index: {slice_idx}")
     # log the unique values of the mask slice   
+    if mask_type == "infarction_masks":
+        logging.debug(f"Unique values in infarction mask slice: {np.unique(mask_slice)}")
+    
     logging.debug(f"Unique values in mask slice: {np.unique(blood_pool_mask_slice)}")
     logging.debug(f"blood_pool_mask_slice shape: {blood_pool_mask_slice.shape}")
     return mask_slice, blood_pool_mask_slice
