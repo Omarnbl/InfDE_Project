@@ -203,6 +203,11 @@ def generate_multible_cardiac_images(
     infarction_color: int = 3,
     no_flow_color: int = 4):
     
+    simulated_directory_path ="simulated_masks"
+    output_dir = os.path.join(output_dir, simulated_directory_path)
+    os.makedirs(output_dir, exist_ok=True)
+
+
     for i in range(number_of_images):
         custom_image, custom_results = generate_cardiac_image(
             all_masks=all_masks,    
@@ -229,9 +234,7 @@ def generate_multible_cardiac_images(
         timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
         # calculate the percentage of infarction to mayocardium
         # infarction_percentage = int(np.sum(custom_image == infarction_color) / np.sum(custom_image != 0 ) * 100)
-        output_dir = r"E:\SBME\Graduation Project\Datasets\Simulated_data\simulated"
         # Ensure the directory exists
-        os.makedirs(output_dir, exist_ok=True)
         # Save the image
         # Save the image with a timestamp
         cv2.imwrite(os.path.join(output_dir, f"{mayocardium_type}_simulated_{timestamp}.png"), custom_image)

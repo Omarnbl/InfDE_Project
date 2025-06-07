@@ -1,12 +1,12 @@
 {
     "paths": {
-        "base_path": "E:\\SBME\\Graduation_Project\\Datasets\\reformatted_data_last",
-        "np_data_path": "E:\\SBME\\Graduation_Project\\Code\\Simulation\\data_log\\all_masks.npy",
-        "output_dir": "E:\\SBME\\Graduation_Project\\Datasets\\Simulated_data\\simulated"
+        "base_path": "/dataset",
+        "np_data_path": "app/dataset/masks.npy",
+        "output_dir": "app/dataset/simulated_data"
     },
 
     "merge_masks_params": {
-        "number_of_masks": 100,
+        "number_of_masks": 2,
         "search_range": 10,
         "rotation_step": 30,
         "visualize_flag": 0, 
@@ -16,7 +16,7 @@
         "no_flow_value" : 4
     },
     "generate_images_params": {
-        "number_of_images": 0,
+        "number_of_images": 2,
         "mayocardium_type": "real",
         "image_size": [250, 250],
         "number_of_seeds": 80,
