@@ -1,8 +1,8 @@
 {
     "paths": {
         "base_path": "/dataset",
-        "np_data_path": "app/dataset/masks.npy",
-        "output_dir": "app/dataset/simulated_data"
+        "np_data_path": "/usr/src/app/dataset/masks.npy",
+        "output_dir": "/usr/src/mount_input_output"
     },
 
     "merge_masks_params": {
