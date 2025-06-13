@@ -1,5 +1,12 @@
 FROM python:3.12.2
 
+# Install TensorFlow
+RUN pip install tensorflow matplotlib
+
+# Copy your model code and weights
+COPY generator_runner.py /usr/src/app/generator_runner.py
+COPY ckpt-173.h5 /usr/src/app/ckpt-173.h5
+
 # Set working directory
 WORKDIR /usr/src/app
 

@@ -6,7 +6,7 @@
   },
 
   "merge_masks_params": {
-    "number_of_masks": 0,
+    "number_of_masks": 10,
     "search_range": 10,
     "rotation_step": 30,
     "visualize_flag": 0,
@@ -16,7 +16,7 @@
     "no_flow_value": 4
   },
   "generate_images_params": {
-    "number_of_images": 100,
+    "number_of_images": 0,
     "mayocardium_type": "real",
     "image_size": [250, 250],
     "number_of_seeds": 80,
