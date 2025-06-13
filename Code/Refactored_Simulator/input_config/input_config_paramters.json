@@ -6,7 +6,7 @@
     },
 
     "merge_masks_params": {
-        "number_of_masks": 2,
+        "number_of_masks": 0,
         "search_range": 10,
         "rotation_step": 30,
         "visualize_flag": 0, 
@@ -16,7 +16,7 @@
         "no_flow_value" : 4
     },
     "generate_images_params": {
-        "number_of_images": 2,
+        "number_of_images": 100,
         "mayocardium_type": "real",
         "image_size": [250, 250],
         "number_of_seeds": 80,
@@ -32,6 +32,10 @@
         "blood_pool_color": 30,
         "mayocardium_color": 60,
         "infarction_color": 100,
-        "no_flow_color": 130
+        "no_flow_color": 130,
+        "infarct_to_myo_upper_limit": 0.5,
+        "infarct_to_myo_lower_limit": 0.1,
+        "noflow_to_infarct_upper_limit": 0.4,
+        "noflow_to_infarct_lower_limit": 0.1
     }
 }

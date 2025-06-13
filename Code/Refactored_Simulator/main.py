@@ -26,16 +26,21 @@ def main(config_path: str):
     np_data_path = Path(config['paths']['np_data_path'])
     output_dir = config['paths']['output_dir']
     
+    # Check if npy file exists
     if np_data_path.exists():
+        # read the data from the npy file
         all_masks = np.load(np_data_path, allow_pickle=True).item()
         print("Loaded existing masks from file!")
     else:
+        # Extract masks and save them
         all_masks = extract_all_masks(base_path)
         print("All masks extracted successfully!")
+        # Create parent directory if it doesn't exist
         np_data_path.parent.mkdir(parents=True, exist_ok=True)
         save_masks_to_npy(all_masks, np_data_path)
         print("All masks saved successfully!")
 
+    # Generate merged masks
     merge_params = config['merge_masks_params']
     merged_masks = generate_multible_merged_masks(
         all_masks=all_masks,
@@ -51,6 +56,7 @@ def main(config_path: str):
 
     )
 
+    # Generate multiple cardiac images
     image_params = config['generate_images_params']
     generate_multible_cardiac_images(
         number_of_images=image_params['number_of_images'],
@@ -71,7 +77,11 @@ def main(config_path: str):
         blood_pool_color=image_params['blood_pool_color'],
         mayocardium_color=image_params['mayocardium_color'],
         infarction_color=image_params['infarction_color'],
-        no_flow_color=image_params['no_flow_color']
+        no_flow_color=image_params['no_flow_color'],
+        infarct_to_myo_upper_limit = image_params['infarct_to_myo_upper_limit'],
+        infarct_to_myo_lower_limit = image_params['infarct_to_myo_lower_limit'],
+        noflow_to_infarct_upper_limit = image_params['noflow_to_infarct_upper_limit'],
+        noflow_to_infarct_lower_limit = image_params['noflow_to_infarct_lower_limit']
     )
 
 if __name__ == "__main__":

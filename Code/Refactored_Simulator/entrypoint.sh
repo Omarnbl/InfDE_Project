@@ -1,6 +1,7 @@
 #!/bin/sh
 # entrypoint.sh
 
+# Path to the mounted config file
 CONFIG_PATH="/usr/src/mount_input_output/input_config_paramters.json"
 
 # If the config file is missing, copy the default from the image

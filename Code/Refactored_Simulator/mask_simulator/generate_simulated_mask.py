@@ -9,6 +9,7 @@ from  mask_extractor.extract_masks import get_random_mask_slice, add_blood_pool_
 import logging
 import time
 from datetime import datetime
+from stats_calculator.stats_calculator import StatsCalculator
 
 
 
@@ -29,7 +30,7 @@ def generate_cardiac_image(
     blood_pool_color: int = 1,
     mayocardium_color: int = 2,
     infarction_color: int = 3,
-    no_flow_color: int = 4
+    no_flow_color: int = 4,
 ) -> Tuple[np.ndarray, dict]:
     """
     Generate a complete cardiac image with infarctions and no-flow regions.
@@ -57,7 +58,6 @@ def generate_cardiac_image(
     """
     # Initialize processor
     processor = ImageProcessor()
-    
     if mayocardium_type == 'simulated':
         # Generate initial cardiac structure
         height, width = image_size
@@ -130,8 +130,6 @@ def generate_cardiac_image(
             blood_pool_color=blood_pool_color
         )
     
-
-    
     # Store intermediate results
     results = {
         'original_image': array,
@@ -201,44 +199,63 @@ def generate_multible_cardiac_images(
     blood_pool_color: int = 1,
     mayocardium_color: int = 2,
     infarction_color: int = 3,
-    no_flow_color: int = 4):
+    no_flow_color: int = 4,
+    infarct_to_myo_upper_limit: float = 0.6,
+    infarct_to_myo_lower_limit: float = 0.2,
+    noflow_to_infarct_upper_limit: float = 0.4,
+    noflow_to_infarct_lower_limit: float = 0.1
+    ):
     
     simulated_directory_path ="simulated_masks"
     output_dir = os.path.join(output_dir, simulated_directory_path)
     os.makedirs(output_dir, exist_ok=True)
-
+    stats_calculator = StatsCalculator(
+        infarction_val=infarction_color,
+        myocardium_val=mayocardium_color,
+        no_flow_val=no_flow_color
+    )
 
     for i in range(number_of_images):
-        custom_image, custom_results = generate_cardiac_image(
-            all_masks=all_masks,    
-            mayocardium_type=mayocardium_type,
-            image_size=image_size,
-            number_of_seeds=number_of_seeds,
-            energy=energy,
-            max_radius_step=max_radius_step,
-            max_theta_step=max_theta_step,
-            min_cluster_size=min_cluster_size,
-            min_no_flow_size=min_no_flow_size,
-            ring_thick_max=ring_thick_max,
-            ring_thick_min=ring_thick_min,
-            show_plots=show_plots,
-            background_color=background_color,
-            blood_pool_color=blood_pool_color,
-            mayocardium_color=mayocardium_color,
-            infarction_color=infarction_color,
-            no_flow_color=no_flow_color
-        )
-        # Generate multiple cardiac images
+        accurate_gen = False
+        while not accurate_gen:
+            try:
+                # Generate a single cardiac image
+                custom_image, custom_results = generate_cardiac_image ( 
+                    all_masks=all_masks,    
+                    mayocardium_type=mayocardium_type,
+                    image_size=image_size,
+                    number_of_seeds=number_of_seeds,
+                    energy=energy,
+                    max_radius_step=max_radius_step,
+                    max_theta_step=max_theta_step,
+                    min_cluster_size=min_cluster_size,
+                    min_no_flow_size=min_no_flow_size,
+                    ring_thick_max=ring_thick_max,
+                    ring_thick_min=ring_thick_min,
+                    show_plots=show_plots,
+                    background_color=background_color,
+                    blood_pool_color=blood_pool_color,
+                    mayocardium_color=mayocardium_color,
+                    infarction_color=infarction_color,
+                    no_flow_color=no_flow_color
+                )
+                # Check if the generated image meets the criteria
+                stats = stats_calculator.process_mask(custom_image, infarct_to_myo_upper_limit=infarct_to_myo_upper_limit, infarct_to_myo_lower_limit=infarct_to_myo_lower_limit,
+                                                       noflow_to_infarct_upper_limit=noflow_to_infarct_upper_limit, noflow_to_infarct_lower_limit=noflow_to_infarct_lower_limit)
+                if stats["has_significant_infarct_or_noflow"]:
+                    logging.warning(f"Image {i} has significant no-flow or infarct area, regenerating...")
+                    continue
+                accurate_gen = True
+            except Exception as e:
+                logging.error(f"Error generating image {i}: {e}")
+                time.sleep(1)
+        
         # save the time the image was generated
-        # timestamp = time.strftime("%Y-%m-%d-%H-%M-%S")
         timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S-%f")
-        # calculate the percentage of infarction to mayocardium
-        # infarction_percentage = int(np.sum(custom_image == infarction_color) / np.sum(custom_image != 0 ) * 100)
-        # Ensure the directory exists
-        # Save the image
         # Save the image with a timestamp
-        cv2.imwrite(os.path.join(output_dir, f"{mayocardium_type}_simulated_{timestamp}.png"), custom_image)
+        print (int((stats['infarct_to_myo']*100)), int((stats['noflow_to_infarct']*100)))
+        cv2.imwrite(os.path.join(output_dir, f"{mayocardium_type}_simulated_{int(stats['infarct_to_myo']*100)}_{int(stats['noflow_to_infarct']*100)}_{timestamp}.png"), custom_image)
         # save npy
-        np.save(os.path.join(output_dir, f"{mayocardium_type}_simulated_{timestamp}.npy"), custom_image)
+        np.save(os.path.join(output_dir, f"{mayocardium_type}_simulated_{int(stats['infarct_to_myo']*100)}_{int(stats['noflow_to_infarct']*100)}_{timestamp}.npy"), custom_results)
         print(f"Image {i} saved successfully!")
         # Save the image
