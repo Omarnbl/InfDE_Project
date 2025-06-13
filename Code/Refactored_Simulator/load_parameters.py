@@ -2,6 +2,7 @@
 import os
 import shutil
 
+# Fixed absolute paths
 DEFAULT_CONFIG = "/usr/src/app/input_config/input_config_paramters.json.default"
 TARGET_CONFIG = "/usr/src/mount_input_output/input_config_paramters.json"
 
