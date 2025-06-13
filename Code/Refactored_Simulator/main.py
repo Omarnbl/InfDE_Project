@@ -51,7 +51,9 @@ def main(config_path: str):
         mayocardium_vlue = merge_params['mayocardium_vlue'],
         infarction_value = merge_params['infarction_value'], 
         blood_pool_value = merge_params['blood_pool_value'], 
-        no_flow_value = merge_params['no_flow_value']
+        no_flow_value = merge_params['no_flow_value'],
+        output_dir=output_dir
+
     )
 
     # Generate multiple cardiac images
