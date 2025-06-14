@@ -256,6 +256,6 @@ def generate_multible_cardiac_images(
         print (int((stats['infarct_to_myo']*100)), int((stats['noflow_to_infarct']*100)))
         cv2.imwrite(os.path.join(output_dir, f"{mayocardium_type}_simulated_{int(stats['infarct_to_myo']*100)}_{int(stats['noflow_to_infarct']*100)}_{timestamp}.png"), custom_image)
         # save npy
-        np.save(os.path.join(output_dir, f"{mayocardium_type}_simulated_{int(stats['infarct_to_myo']*100)}_{int(stats['noflow_to_infarct']*100)}_{timestamp}.npy"), custom_results)
+        np.save(os.path.join(output_dir, f"{mayocardium_type}_simulated_{int(stats['infarct_to_myo']*100)}_{int(stats['noflow_to_infarct']*100)}_{timestamp}.npy"), custom_image)
         print(f"Image {i} saved successfully!")
         # Save the image
