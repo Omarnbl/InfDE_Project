@@ -106,7 +106,20 @@ After localizing the left ventricle, this step helps standardize the pixel inten
    ```python
    input_path = r"your/input/images/folder"
    output_path = r"your/output/clipped_images/folder"
+---
 
+## 📁 Output After Preprocessing
+
+After completing the preprocessing pipeline, we organized the data as follows for training (you can split it as you want):
+
+- `images/`
+  - `train/`
+  - `val/`
+  - `test/`
+- `masks/`
+  - `train/`
+  - `val/`
+  - `test/`
 
 ## Dependencies
 
