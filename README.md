@@ -77,25 +77,6 @@ This repository contains the tools and data required for processing cardiac MRI 
 
 ---
 
-#### Notebook 3: Histogram Equalization
-
-1. Navigate to `GP_InfDE/Code/3-Histogram_Equalization.ipynb`.
-2. Open the notebook in your Python environment.
-3. Set the paths for:
-   - **Input folder**: e.g., `All Train Slices` or `All Test Slices`
-   - **Output folder**: Specify where the processed slices will be saved.
-
-   ```python
-   input_path = "path/to/slices"
-   output_path = "path/to/output"
-   ```
-
-4. Run all cells sequentially.
-
-**Output**: Applies histogram equalization to the slices and saves them in the specified output folder.
-
----
-
 ### Step 3: Left Ventricle Localization
 
 1. Download the model from [here](https://github.com/Project-MONAI/model-zoo/releases/download/hosting_storage_v1/ventricular_short_axis_3label_v0.3.2.zip) and extract it.
