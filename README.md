@@ -91,6 +91,22 @@ This repository contains the tools and data required for processing cardiac MRI 
    output_labels_dir = r"Set this to the directory where you want to store the localized labels"
    output_visual_dir = r"Set this to the directory where you want to store the visualisations of the localized data"
 
+---
+
+### Step 4: Intensity Clipping
+
+After localizing the left ventricle, this step helps standardize the pixel intensity distribution by clipping the values to a fixed percentile range (e.g., 2nd–98th percentile).
+
+#### Notebook: Clip Image Intensities Based on Percentiles
+
+1. Navigate to `GP_InfDE/Code/4-Percentile_Clipping.ipynb`.
+2. Open the notebook in your Python environment.
+3. Set the input and output paths for the `.npy` images in the first cell:
+
+   ```python
+   input_path = r"your/input/images/folder"
+   output_path = r"your/output/clipped_images/folder"
+
 
 ## Dependencies
 
