@@ -1,60 +1,46 @@
-2025-04-20 05:05:10,100 - INFO - Generating image 250x250
-2025-04-20 05:05:10,421 - DEBUG - Initial seed point: [125 208], Center: (124.82674239237133, 119.43787687561351)
-2025-04-20 05:05:10,423 - INFO - Generated 78 seed points
-2025-04-20 05:05:10,523 - INFO - Generating image 250x250
-2025-04-20 05:05:10,836 - DEBUG - Initial seed point: [168  54], Center: (119.03975346687211, 123.2371854134566)
-2025-04-20 05:05:10,836 - INFO - Generated 56 seed points
-2025-04-20 05:05:10,916 - INFO - Generating image 250x250
-2025-04-20 05:05:11,222 - DEBUG - Initial seed point: [177 108], Center: (128.92422502870264, 125.6816877152698)
-2025-04-20 05:05:11,222 - INFO - Generated 24 seed points
-2025-04-20 05:05:11,281 - INFO - Generating image 250x250
-2025-04-20 05:05:11,599 - DEBUG - Initial seed point: [ 54 153], Center: (124.84862865947612, 131.18163328197227)
-2025-04-20 05:05:11,601 - INFO - Generated 51 seed points
-2025-04-20 05:05:11,730 - INFO - Generating image 250x250
-2025-04-20 05:05:12,038 - DEBUG - Initial seed point: [122  66], Center: (129.45950217305412, 121.91884630580797)
-2025-04-20 05:05:12,038 - INFO - Generated 44 seed points
-2025-04-20 05:05:12,093 - INFO - Generating image 250x250
-2025-04-20 05:05:12,460 - DEBUG - Initial seed point: [ 49 126], Center: (118.23442163335443, 132.2166953061409)
-2025-04-20 05:05:12,460 - INFO - Generated 48 seed points
-2025-04-20 05:05:12,538 - INFO - Generating image 250x250
-2025-04-20 05:05:12,870 - DEBUG - Initial seed point: [63 69], Center: (125.92655006101458, 120.21215642977512)
-2025-04-20 05:05:12,870 - INFO - Generated 79 seed points
-2025-04-20 05:05:12,931 - INFO - Generating image 250x250
-2025-04-20 05:05:13,229 - DEBUG - Initial seed point: [182  79], Center: (129.45466414256805, 124.17559892943403)
-2025-04-20 05:05:13,230 - INFO - Generated 73 seed points
-2025-04-20 05:05:13,313 - INFO - Generating image 250x250
-2025-04-20 05:05:13,631 - DEBUG - Initial seed point: [217 171], Center: (121.01499940241425, 123.13804230907135)
-2025-04-20 05:05:13,631 - INFO - Generated 27 seed points
-2025-04-20 05:05:13,667 - INFO - Generating image 250x250
-2025-04-20 05:05:13,952 - DEBUG - Initial seed point: [88 82], Center: (125.34941503532954, 123.93032549519286)
-2025-04-20 05:05:13,952 - INFO - Generated 79 seed points
-2025-04-20 05:05:14,476 - INFO - Generating image 250x250
-2025-04-20 05:05:14,777 - DEBUG - Initial seed point: [180 161], Center: (133.03329589216943, 126.22785622593068)
-2025-04-20 05:05:14,778 - INFO - Generated 36 seed points
-2025-04-20 05:05:14,887 - INFO - Generating image 250x250
-2025-04-20 05:05:15,185 - DEBUG - Initial seed point: [153 212], Center: (134.57566549167376, 142.816701106114)
-2025-04-20 05:05:15,185 - INFO - Generated 11 seed points
-2025-04-20 05:05:15,209 - INFO - Generating image 250x250
-2025-04-20 05:05:15,483 - DEBUG - Initial seed point: [117 188], Center: (122.03653202984307, 130.8417802932853)
-2025-04-20 05:05:15,484 - INFO - Generated 42 seed points
-2025-04-20 05:05:15,586 - INFO - Generating image 250x250
-2025-04-20 05:05:15,876 - DEBUG - Initial seed point: [149  76], Center: (121.37898525882757, 121.8344189235516)
-2025-04-20 05:05:15,877 - INFO - Generated 47 seed points
-2025-04-20 05:05:15,935 - INFO - Generating image 250x250
-2025-04-20 05:05:16,270 - DEBUG - Initial seed point: [99 45], Center: (127.34618483852972, 117.75367259654125)
-2025-04-20 05:05:16,270 - INFO - Generated 75 seed points
-2025-04-20 05:05:16,539 - INFO - Generating image 250x250
-2025-04-20 05:05:16,852 - DEBUG - Initial seed point: [54 75], Center: (122.51540616246498, 124.97759103641457)
-2025-04-20 05:05:16,852 - INFO - Generated 76 seed points
-2025-04-20 05:05:16,934 - INFO - Generating image 250x250
-2025-04-20 05:05:17,214 - DEBUG - Initial seed point: [169  80], Center: (114.95563188779161, 117.76456275941034)
-2025-04-20 05:05:17,215 - INFO - Generated 30 seed points
-2025-04-20 05:05:17,252 - INFO - Generating image 250x250
-2025-04-20 05:05:17,552 - DEBUG - Initial seed point: [211 114], Center: (123.4583573026526, 127.87663790348354)
-2025-04-20 05:05:17,552 - INFO - Generated 60 seed points
-2025-04-20 05:05:17,685 - INFO - Generating image 250x250
-2025-04-20 05:05:18,011 - DEBUG - Initial seed point: [212 139], Center: (126.50090452261307, 121.19190954773869)
-2025-04-20 05:05:18,011 - INFO - Generated 79 seed points
-2025-04-20 05:05:24,772 - INFO - Generating image 250x250
-2025-04-20 05:05:25,179 - DEBUG - Initial seed point: [75 60], Center: (114.96532194824431, 119.31916005924893)
-2025-04-20 05:05:25,180 - INFO - Generated 13 seed points
+2025-06-06 01:23:41,463 - DEBUG - Selected case ID: Case_N054
+2025-06-06 01:23:41,526 - DEBUG - Selected slice index: 2
+2025-06-06 01:23:41,530 - DEBUG - Unique values in mask slice: [0 1]
+2025-06-06 01:23:41,532 - DEBUG - blood_pool_mask_slice shape: (128, 128)
+2025-06-06 01:23:41,534 - DEBUG - Selected case ID: Case_P039
+2025-06-06 01:23:41,536 - DEBUG - Selected slice index: 1
+2025-06-06 01:23:41,540 - DEBUG - Unique values in infarction mask slice: [0 3]
+2025-06-06 01:23:41,542 - DEBUG - Unique values in mask slice: [0 1]
+2025-06-06 01:23:41,543 - DEBUG - blood_pool_mask_slice shape: (128, 128)
+2025-06-06 01:23:42,823 - DEBUG - Unique values in mayocardial_mask: [0 2]
+2025-06-06 01:23:42,825 - DEBUG - Unique values in infarction_mask: [0 3]
+2025-06-06 01:23:45,776 - DEBUG - Unique values in shifted mask: [0 3]
+2025-06-06 01:23:45,882 - DEBUG - Unique values in aligned infarction mask: [0 3]
+2025-06-06 01:23:45,897 - DEBUG - Unique values in aligned infarction mask: [0 3]
+2025-06-06 01:23:46,033 - DEBUG - Unique values in merged mask: [0 2 3]
+2025-06-06 01:23:46,034 - DEBUG - infarction_value: 3, mayocardium_vlue: 2, no_flow_value: 4
+2025-06-06 01:23:46,035 - DEBUG - Unique values in merged_mask: [0 2 3]
+2025-06-06 01:23:47,141 - DEBUG - Selected case ID: Case_P022
+2025-06-06 01:23:47,144 - DEBUG - Selected slice index: 1
+2025-06-06 01:23:47,149 - DEBUG - Unique values in mask slice: [0 1]
+2025-06-06 01:23:47,152 - DEBUG - blood_pool_mask_slice shape: (128, 128)
+2025-06-06 01:23:47,153 - DEBUG - Selected case ID: Case_P003
+2025-06-06 01:23:47,154 - DEBUG - Selected slice index: 1
+2025-06-06 01:23:47,157 - DEBUG - Unique values in infarction mask slice: [0 3 4]
+2025-06-06 01:23:47,159 - DEBUG - Unique values in mask slice: [0 1]
+2025-06-06 01:23:47,160 - DEBUG - blood_pool_mask_slice shape: (128, 128)
+2025-06-06 01:23:47,162 - DEBUG - Unique values in mayocardial_mask: [0 2]
+2025-06-06 01:23:47,164 - DEBUG - Unique values in infarction_mask: [0 3 4]
+2025-06-06 01:23:49,640 - DEBUG - Unique values in shifted mask: [0 3 4]
+2025-06-06 01:23:49,645 - DEBUG - Unique values in aligned infarction mask: [0 3 4]
+2025-06-06 01:23:49,646 - DEBUG - Unique values in aligned infarction mask: [0 3 4]
+2025-06-06 01:23:49,647 - DEBUG - Unique values in merged mask: [0 2 3 4]
+2025-06-06 01:23:49,648 - DEBUG - infarction_value: 3, mayocardium_vlue: 2, no_flow_value: 4
+2025-06-06 01:23:49,649 - DEBUG - Unique values in merged_mask: [0 2 3 4]
+2025-06-06 01:23:50,005 - DEBUG - Selected case ID: Case_N079
+2025-06-06 01:23:50,006 - DEBUG - Selected slice index: 0
+2025-06-06 01:23:50,007 - DEBUG - Unique values in mask slice: [0 1]
+2025-06-06 01:23:50,008 - DEBUG - blood_pool_mask_slice shape: (128, 128)
+2025-06-06 01:23:50,083 - DEBUG - Initial seed point: [37 55], Center: (61.544095665171895, 66.81265570503238)
+2025-06-06 01:23:50,174 - INFO - Generated 32 seed points
+2025-06-06 01:23:51,514 - DEBUG - Selected case ID: Case_N042
+2025-06-06 01:23:51,514 - DEBUG - Selected slice index: 3
+2025-06-06 01:23:51,516 - DEBUG - Unique values in mask slice: [0 1]
+2025-06-06 01:23:51,516 - DEBUG - blood_pool_mask_slice shape: (128, 128)
+2025-06-06 01:23:51,517 - DEBUG - Initial seed point: [66 80], Center: (63.49122807017544, 65.28304093567252)
+2025-06-06 01:23:51,519 - INFO - Generated 8 seed points

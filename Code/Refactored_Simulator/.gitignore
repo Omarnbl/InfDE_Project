@@ -3,3 +3,4 @@ Dockerfile
 requirements.txt
 .dockerignore
 app.log
+*.h5

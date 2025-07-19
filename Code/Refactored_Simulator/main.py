@@ -51,7 +51,9 @@ def main(config_path: str):
         mayocardium_vlue = merge_params['mayocardium_vlue'],
         infarction_value = merge_params['infarction_value'], 
         blood_pool_value = merge_params['blood_pool_value'], 
-        no_flow_value = merge_params['no_flow_value']
+        no_flow_value = merge_params['no_flow_value'],
+        output_dir=output_dir
+
     )
 
     # Generate multiple cardiac images
@@ -75,7 +77,11 @@ def main(config_path: str):
         blood_pool_color=image_params['blood_pool_color'],
         mayocardium_color=image_params['mayocardium_color'],
         infarction_color=image_params['infarction_color'],
-        no_flow_color=image_params['no_flow_color']
+        no_flow_color=image_params['no_flow_color'],
+        infarct_to_myo_upper_limit = image_params['infarct_to_myo_upper_limit'],
+        infarct_to_myo_lower_limit = image_params['infarct_to_myo_lower_limit'],
+        noflow_to_infarct_upper_limit = image_params['noflow_to_infarct_upper_limit'],
+        noflow_to_infarct_lower_limit = image_params['noflow_to_infarct_lower_limit']
     )
 
 if __name__ == "__main__":

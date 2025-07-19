@@ -5,7 +5,6 @@ import numpy as np
 import cv2
 from typing import Dict, List, Tuple, Any
 from mask_extractor.extract_masks import get_random_mask_slice, add_blood_pool_to_image
-# import logging
 import logging
 import time
 from datetime import datetime
@@ -52,7 +51,7 @@ def merge_masks(mayocardial_mask: np.ndarray, infarction_mask: np.ndarray, searc
 
 def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: int, search_range, 
                                    rotation_angles, visualize_flag, mayocardium_vlue: int = 2, infarction_value: int = 3, 
-                                   blood_pool_value: int =1, no_flow_value: int = 4) -> List[np.ndarray]:
+                                   blood_pool_value: int =1, no_flow_value: int = 4 , output_dir : str = None) -> List[np.ndarray]:
     """
     Generate a number of merged masks using the input masks.
     
@@ -68,8 +67,8 @@ def generate_multible_merged_masks(all_masks: Dict[str, Any], number_of_masks: i
         List[np.ndarray]: List of merged masks
     """
     merged_masks = []
-    output_dir = r"E:\SBME\Graduation_Project\Datasets\Simulated_data\merged"
-
+    merged_directory_path ='merged_masks'
+    output_dir = os.path.join(output_dir, merged_directory_path)
     # Ensure the directory exists
     os.makedirs(output_dir, exist_ok=True)
 

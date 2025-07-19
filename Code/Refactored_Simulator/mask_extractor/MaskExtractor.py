@@ -49,7 +49,7 @@ class MaskExtractor:
         Returns:
             List[Path]: List of paths to training directories
         """
-        return [d for d in self.base_path.glob("*_Train") if d.is_dir()]
+        return [d for d in self.base_path.glob("*train_data") if d.is_dir()]
 
     def _process_train_directory(self, train_dir: Path) -> None:
         """

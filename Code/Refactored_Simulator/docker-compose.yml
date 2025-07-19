@@ -1,0 +1,8 @@
+version: '3.9'
+services:
+  app:
+    image: omarna/simulator_app:latest
+    container_name: simulator_app
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
