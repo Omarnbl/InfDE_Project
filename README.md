@@ -113,7 +113,7 @@ For detailed installation and setup instructions, please refer to the individual
 
 ## 🎥 System Demonstration
 
-[![System Demo Video](/placeholder.svg?height=300&width=500&query=video%20thumbnail%20cardiac%20MRI%20segmentation%20demo)](https://placeholder-video-link.com)
+![System Demo Video](assets/project_video.gif)
 
 *Watch our comprehensive demonstration showing the complete workflow from DICOM upload to AI-powered segmentation and clinical reporting*
 
