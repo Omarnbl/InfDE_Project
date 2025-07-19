@@ -1,29 +1,3 @@
-# GP_InfDE
-
-This repository contains the tools and data required for processing cardiac MRI images to analyze infarction and no-reflow regions. Follow the guide below to understand the repository structure and how to use the provided resources.
-
----
-
-## Repository Structure
-
-- **GP_InfDE/**
-  - **Code/**: Contains Python notebooks for data processing
-    - `1-Split_NIFTI_Into_Slices.ipynb`
-    - `2-Unify_Masks_Values.ipynb`
-    - `3-Histogram_Equalization.ipynb`
-  - **Data/**: Placeholder for dataset files
-    - `<example data files>`
-    - `README.md`: Instructions for using the data
-  - **Documents/**: Contains Meeting minutes and other documentation
-    - **Meeting Minutes/**
-      - `Meeting1.pdf`
-      - `Meeting2.pdf`
-      - `...`
-  - **Other Resources/**: Folder for future resources (currently empty)
-  - `README.md`: Guide for using the repository
-
----
-
 ## Getting Started
 
 ### Step 1: Download the Dataset
