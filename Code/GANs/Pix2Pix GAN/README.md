@@ -51,7 +51,7 @@ File and model names use specific abbreviations to concisely describe each confi
 | **sigmoid**     | Generator uses sigmoid activation (output range [0, 1]) (used earlier) |
 | **weightedL1**  | Loss includes region-specific weighted L1 loss                |
 | **INF25/26/40** | Infarction region weight = 25× / 26× / 40×                    |
-| **NR90/120**    | No-Reflow region weight = 90× / 120×                          |
+| **NR/NF90/120**    | No-Reflow region weight = 90× / 120×                          |
 | **MY11/12/20**  | Normal Myocardium region weight = 11× / 12× / 20×             |
 | **CAV7/10**     | Cavity region weight = 7× / 10×                               |
 | **L100**        | Lambda (L1 loss weight) = 100                                 |
