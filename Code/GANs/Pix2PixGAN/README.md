@@ -20,7 +20,7 @@ A subfolder named **Best Models** contains a link to download the top-performing
 pix2pix GAN/
 │
 ├── Notebooks/         # Training notebooks for Pix2Pix models
-├── Best Models/       # Drive link to download best 3 models
+├── Best_Models/       # Drive link to download best 3 models
 └── README.md          # Project description (this file)
 ```
 
