@@ -1,144 +1,186 @@
-# GP_InfDE
+# Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation
 
-This repository contains the tools and data required for processing cardiac MRI images to analyze infarction and no-reflow regions. Follow the guide below to understand the repository structure and how to use the provided resources.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org/)
+[![React](https://img.shields.io/badge/React-18.x-blue.svg)](https://reactjs.org/)
 
----
+## Project Overview
 
-## Repository Structure
+This graduation project presents an innovative end-to-end solution for automated myocardial infarction segmentation in Late Gadolinium Enhancement (LGE) Cardiac Magnetic Resonance (CMR) images. Our system bridges the gap between AI research and clinical application by integrating advanced deep learning techniques with a user-friendly web-based platform.
 
-- **GP_InfDE/**
-  - **Code/**: Contains Python notebooks for data processing
-    - `1-Split_NIFTI_Into_Slices.ipynb`
-    - `2-Unify_Masks_Values.ipynb`
-    - `3-Histogram_Equalization.ipynb`
-  - **Data/**: Placeholder for dataset files
-    - `<example data files>`
-    - `README.md`: Instructions for using the data
-  - **Documents/**: Contains Meeting minutes and other documentation
-    - **Meeting Minutes/**
-      - `Meeting1.pdf`
-      - `Meeting2.pdf`
-      - `...`
-  - **Other Resources/**: Folder for future resources (currently empty)
-  - `README.md`: Guide for using the repository
+### 🏥 Clinical Impact
 
----
+Cardiovascular disease remains the leading cause of global mortality. Accurate segmentation of myocardial infarction is crucial for:
+- **Diagnosis and Treatment Planning**: Precise identification of infarcted tissue
+- **Therapeutic Guidance**: Essential for procedures like ventricular tachycardia ablation
+- **Clinical Decision Support**: Standardized, reproducible analysis for optimal patient care
 
-## Getting Started
+### 🔬 Technical Innovation
 
-### Step 1: Download the Dataset
+Our approach addresses critical challenges in medical AI:
+- **Data Scarcity**: Novel synthetic data generation using GANs and mathematical simulation
+- **Class Imbalance**: Advanced loss functions and attention mechanisms
+- **Clinical Integration**: Web-based DICOM viewer with interactive segmentation refinement
 
-1. Click [here to download the dataset](https://drive.google.com/drive/folders/1FBuTpm0AekDZUEfBpTYaYga6CL2XSvS4?usp=drive_link).
-2. Extract the folder after downloading. Note the directory path, as it will be required in the notebooks.
+## 🏗️ System Architecture
 
----
+![System Architecture Diagram](/placeholder.svg?height=400&width=800&query=cardiac%20MRI%20segmentation%20system%20architecture%20diagram%20showing%20data%20pipeline%20GAN%20training%20segmentation%20model%20mathematical%20simulator%20evaluation%20metrics%20and%20web%20platform)
 
-### Step 2: Process the Data
+*Complete system workflow from data preprocessing through synthetic data generation to clinical deployment*
 
-#### Notebook 1: Split NIFTI into Slices
+## 📁 Repository Structure
 
-1. Navigate to `GP_InfDE/Code/1-Split_NIFTI_Into_Slices.ipynb`.
-2. Open the notebook in your Python environment (e.g., Jupyter Notebook).
-3. Set the path to the dataset directory in the first cell:
-
-   ```python
-   dataset_path = "your/data/folder/path"
-   ```
-
-4. Run all cells sequentially.
-
-**Output**: Creates `.npy` slices for each patient in their respective folders.
-
----
-
-#### Notebook 2: Unify Mask Values
-
-1. Navigate to `GP_InfDE/Code/2-Unify_Masks_Values.ipynb`.
-2. Open the notebook in your Python environment.
-3. Set the path to the dataset directory in the first cell:
-
-   ```python
-   dataset_path = "your/data/folder/path"
-   ```
-
-4. Run all cells sequentially.
-
-**Output**:
-
-- Renames and unifies mask values using the following convention:
-  - **0**: Background  
-  - **1**: Cavity  
-  - **2**: Normal Myocardium  
-  - **3**: Infarction  
-  - **4**: No-Reflow  
-- Creates two new directories:
-  - `All Train Slices`
-  - `All Test Slices`
-
----
-
-### Step 3: Left Ventricle Localization
-
-1. Download the model from [here](https://github.com/Project-MONAI/model-zoo/releases/download/hosting_storage_v1/ventricular_short_axis_3label_v0.3.2.zip) and extract it.
-2. Download the notebook `GP_InfDE/Code/4-Left_Ventricle_Localisation.ipynb` and place it inside the `docs` directory of the downloaded model.
-3. Open the notebook in your Python environment.
-4. Set the following paths in the second cell:
-
-   ```python
-   # Input and output directories
-   input_dir = r"Set this to the directory where your slices are stored"
-   output_rois_dir = r"Set this to the directory where you want to store the localized slices"
-   output_labels_dir = r"Set this to the directory where you want to store the localized labels"
-   output_visual_dir = r"Set this to the directory where you want to store the visualisations of the localized data"
-
----
-
-### Step 4: Intensity Clipping
-
-After localizing the left ventricle, this step helps standardize the pixel intensity distribution by clipping the values to a fixed percentile range (e.g., 2nd–98th percentile).
-
-#### Notebook: Clip Image Intensities Based on Percentiles
-
-1. Navigate to `GP_InfDE/Code/4-Percentile_Clipping.ipynb`.
-2. Open the notebook in your Python environment.
-3. Set the input and output paths for the `.npy` images in the first cell:
-
-   ```python
-   input_path = r"your/input/images/folder"
-   output_path = r"your/output/clipped_images/folder"
----
-
-## 📁 Output After Preprocessing
-
-After completing the preprocessing pipeline, we organized the data as follows for training (you can split it as you want):
-
-- `images/`
-  - `train/`
-  - `val/`
-  - `test/`
-- `masks/`
-  - `train/`
-  - `val/`
-  - `test/`
-
-## Dependencies
-
-Ensure you have the following installed:
-
-- Python 3.x
-- Libraries: `numpy`, `skimage`, `matplotlib`, etc.
-
-To install dependencies, use the following command:
-
-```bash
-pip install -r requirements.txt
+```
+GP_InfDE/
+├── Code/
+│   ├── Data_Preprocessing/          # Image preprocessing and normalization
+│   ├── Data_Simulation_Pipeline/    # Mathematical simulator for mask generation
+│   ├── GANs/                       # Pix2Pix and CycleGAN implementations
+│   ├── Segmentation/               # U-Net models and training scripts
+│   └── main.py                     # Main execution script
+├── Web_Platform/                   # React-based DICOM viewer (separate repo)
+├── docs/                          # Documentation and research papers
+├── models/                        # Trained model weights
+├── results/                       # Experimental results and visualizations
+└── requirements.txt               # Python dependencies
 ```
 
-(Include a `requirements.txt` file with the necessary dependencies if not already present.)
+## 🚀 Quick Start
 
----
+### Prerequisites
 
-## Notes
+- Python 3.8+
+- CUDA-compatible GPU (recommended)
+- Node.js 16+ (for web platform)
+- Docker (optional)
 
-- For dataset-specific instructions, check the `Data/README.md`.
+For detailed installation and setup instructions, please refer to the individual README files in each component directory:
+- [Data Preprocessing Setup](Code/Data_Preprocessing/README.md)
+- [GAN Models Setup](Code/GANs/README.md)
+- [Segmentation Models Setup](Code/Segmentation/README.md)
+- [Web Platform Setup](Web_Platform/README.md)
 
+## 📊 Results and Performance
+
+### Segmentation Performance (Dice Score)
+
+| Class | Real Data Only | Real + GAN Data | Improvement |
+|-------|----------------|-----------------|-------------|
+| Background | 0.9891 | 0.9881 | -0.10% |
+| LV Cavity | 0.9350 | 0.9365 | +0.16% |
+| Normal Myocardium | 0.8222 | 0.8119 | -1.25% |
+| **Infarcted Myocardium** | **0.6126** | **0.6165** | **+0.64%** |
+| **No-Reflow Area** | **0.5376** | **0.6076** | **+13.02%** |
+| **Mean Dice Score** | **0.7793** | **0.7921** | **+1.64%** |
+
+### GAN Performance Metrics
+
+| Model | FID ↓ | IS ↑ | LPIPS ↓ | PSNR ↑ |
+|-------|-------|------|---------|--------|
+| Baseline Pix2Pix | 512.4 | 1.32 | 0.682 | 10.3 |
+| **Our Final Model** | **198.15** | **2.192** | **0.5382** | **16.42** |
+
+### Key Achievements
+
+- ✅ **13% improvement** in no-reflow region segmentation
+- ✅ **61% reduction** in FID score for synthetic image quality
+- ✅ **66% increase** in Inception Score for image diversity
+- ✅ **Web-based platform** for clinical integration
+
+## 🔧 Technical Components
+
+### 1. Mathematical Simulator
+- **Fully Synthetic Masks**: Physiologically-based myocardium generation
+- **Hybrid Injection**: Real anatomy with synthetic pathology
+- **Cross-Subject Fusion**: Novel infarction patterns via k-NN matching
+
+### 2. GAN Models
+- **Pix2Pix**: Conditional image generation from segmentation masks
+- **CycleGAN**: Domain adaptation between cine and LGE sequences
+- **Custom Loss Functions**: Weighted L1 loss addressing class imbalance
+
+### 3. Segmentation Architecture
+- **Attention Residual U-Net**: Enhanced feature learning with attention gates
+- **Class-Weighted Loss**: Emphasis on clinically important regions
+- **Multi-Scale Processing**: 128×128 ROI extraction for efficiency
+
+### 4. Web Platform Features
+- **DICOM Compatibility**: Full study upload and visualization
+- **Interactive Editing**: Brush-based segmentation refinement
+- **AI Integration**: Real-time model inference and overlay
+- **Clinical Reporting**: Automated quantification and PDF export
+
+## 🎥 System Demonstration
+
+[![System Demo Video](/placeholder.svg?height=300&width=500&query=video%20thumbnail%20cardiac%20MRI%20segmentation%20demo)](https://placeholder-video-link.com)
+
+*Watch our comprehensive demonstration showing the complete workflow from DICOM upload to AI-powered segmentation and clinical reporting*
+
+## 🌐 Web Platform
+
+The web-based DICOM viewer provides a seamless clinical interface with the following capabilities:
+
+### Platform Features
+- 📁 **DICOM Study Management**: Upload and organize cardiac MR studies
+- 🖼️ **Multi-Series Visualization**: Side-by-side comparison of sequences
+- 🎨 **Interactive Segmentation**: Real-time editing with brush tools
+- 🤖 **AI-Powered Analysis**: Automated infarction detection and quantification
+- 📊 **Clinical Reporting**: Structured reports with quantitative metrics
+
+For detailed setup and usage instructions, see the [Web Platform README](Web_Platform/README.md).
+
+## 📄 Published Research
+
+This project has resulted in comprehensive research documentation:
+
+### Conference Papers
+- **"Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation"**
+  - *Submitted to: [Conference Name]*
+  - *Status: [Under Review/Accepted/Published]*
+  - [📄 Paper PDF](docs/conference_paper.pdf)
+
+### Technical Reports
+- **"Comprehensive Technical Report: Cardiac MRI Segmentation System"**
+  - *Detailed methodology, experimental validation, and clinical evaluation*
+  - [📄 Technical Report PDF](docs/technical_report.pdf)
+
+### Research Contributions
+1. **Mathematical Simulation Framework**: Novel approach for generating realistic cardiac pathology patterns
+2. **Hybrid GAN Architecture**: Innovative combination of Pix2Pix and CycleGAN for medical image synthesis
+3. **Clinical Integration Platform**: First-of-its-kind web-based system for AI-powered cardiac MRI analysis
+4. **Performance Validation**: Comprehensive evaluation on EMIDEC dataset with clinical relevance metrics
+
+## 🔬 Research Contributions
+
+### Novel Methodologies
+1. **Mathematical Simulation Framework**: Systematic generation of realistic infarction patterns
+2. **Hybrid Data Augmentation**: Combination of synthetic and real data for improved generalization
+3. **Clinical Integration Platform**: Seamless AI deployment in clinical workflows
+
+### Impact and Significance
+- **Clinical Workflow Integration**: Bridges the gap between AI research and clinical practice
+- **Data Scarcity Solution**: Addresses fundamental challenge in medical AI through synthetic data generation
+- **Performance Enhancement**: Demonstrates significant improvement in rare class segmentation (13% for no-reflow regions)
+
+## 🤝 Contributing
+
+We welcome contributions to improve this project! Please follow these guidelines:
+
+1. **Fork the repository** and create a feature branch
+2. **Follow coding standards** (PEP 8 for Python, ESLint for JavaScript)
+3. **Add tests** for new functionality
+4. **Update documentation** as needed
+5. **Submit a pull request** with detailed description
+
+### Development Setup
+```bash
+# Install development dependencies
+pip install -r requirements-dev.txt
+
+# Run tests
+python -m pytest tests/
+
+# Check code style
+flake8 Code/
+black Code/
