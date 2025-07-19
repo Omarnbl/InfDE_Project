@@ -25,7 +25,7 @@ Our approach addresses critical challenges in medical AI:
 
 ## 🏗️ System Architecture
 
-![System Architecture Diagram](/placeholder.svg?height=400&width=800&query=cardiac%20MRI%20segmentation%20system%20architecture%20diagram%20showing%20data%20pipeline%20GAN%20training%20segmentation%20model%20mathematical%20simulator%20evaluation%20metrics%20and%20web%20platform)
+![System Architecture Diagram](assets/architecture.png)
 
 *Complete system workflow from data preprocessing through synthetic data generation to clinical deployment*
 
