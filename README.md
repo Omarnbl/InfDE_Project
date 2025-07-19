@@ -7,61 +7,97 @@
 
 ## Project Overview
 
-This graduation project presents an innovative end-to-end solution for automated myocardial infarction segmentation in Late Gadolinium Enhancement (LGE) Cardiac Magnetic Resonance (CMR) images. Our system bridges the gap between AI research and clinical application by integrating advanced deep learning techniques with a user-friendly web-based platform.
+This project tackles two fundamental challenges in medical AI: data scarcity and clinical integration. We developed a comprehensive system that uses Generative Adversarial Networks (GANs) to synthesize realistic cardiac MRI data, significantly improving segmentation accuracy for myocardial infarction detection. Our solution includes a fully functional web-based platform that seamlessly integrates AI-powered analysis into the daily workflow of medical professionals.
 
-### 🏥 Clinical Impact
+The core innovation lies in addressing the critical shortage of annotated cardiac MRI data through advanced synthetic data generation, while providing clinicians with an intuitive interface for reviewing, refining, and utilizing AI-generated segmentations in their diagnostic process.
+
+### Clinical Impact
 
 Cardiovascular disease remains the leading cause of global mortality. Accurate segmentation of myocardial infarction is crucial for:
 - **Diagnosis and Treatment Planning**: Precise identification of infarcted tissue
 - **Therapeutic Guidance**: Essential for procedures like ventricular tachycardia ablation
 - **Clinical Decision Support**: Standardized, reproducible analysis for optimal patient care
 
-### 🔬 Technical Innovation
+### Technical Innovation
 
 Our approach addresses critical challenges in medical AI:
 - **Data Scarcity**: Novel synthetic data generation using GANs and mathematical simulation
 - **Class Imbalance**: Advanced loss functions and attention mechanisms
 - **Clinical Integration**: Web-based DICOM viewer with interactive segmentation refinement
 
-## 🏗️ System Architecture
+## System Architecture
 
 ![System Architecture Diagram](assets/architecture.png)
 
 *Complete system workflow from data preprocessing through synthetic data generation to clinical deployment*
 
-## 📁 Repository Structure
+## System Components and Workflow
+
+Our integrated pipeline consists of five interconnected modules that work together to deliver robust cardiac MRI segmentation:
+
+### 1. Data Preprocessing Pipeline
+The system begins with the EMIDEC dataset containing 100 cardiac MRI cases. Raw DICOM images undergo spatial normalization to ensure consistent 1×1×1 mm³ voxel spacing. A specialized localization network identifies and extracts 128×128 regions of interest centered on the left ventricle, reducing computational complexity while maintaining clinical relevance.
+
+### 2. Mathematical Simulator
+This innovative component generates diverse synthetic segmentation masks using three complementary strategies:
+- **Fully Synthetic Generation**: Creates physiologically realistic myocardium shapes with embedded infarction patterns
+- **Hybrid Injection**: Combines real myocardial anatomy with synthetically generated pathology
+- **Cross-Subject Fusion**: Transfers infarction patterns between different patients using k-nearest neighbor matching
+
+The simulator produces thousands of realistic mask variations, dramatically expanding the training dataset beyond the original 100 cases.
+
+### 3. GAN-Based Image Synthesis
+Two specialized GAN architectures transform synthetic masks into realistic cardiac MRI images:
+
+**Pix2Pix Network**: Performs conditional image-to-image translation from segmentation masks to realistic DE-MRI images. Our custom implementation uses weighted loss functions to address severe class imbalance, ensuring proper representation of rare pathological regions.
+
+**CycleGAN Network**: Enables domain adaptation between cine MRI (abundant but lacking pathology) and LGE sequences (rare but showing infarctions). This allows us to leverage larger datasets of normal cardiac images.
+
+### 4. Segmentation Models
+The enhanced dataset trains two complementary segmentation architectures:
+- **Attention Residual U-Net**: Custom architecture with attention gates that focus on clinically relevant regions
+- **nnU-Net**: State-of-the-art medical segmentation framework adapted for cardiac pathology detection
+
+Both models benefit from the expanded synthetic dataset, showing particular improvement in detecting rare pathological classes like no-reflow regions.
+
+### 5. Clinical Web Platform
+The final component integrates all AI models into a production-ready web application. Built with React and Django, it provides:
+- Native DICOM file handling and visualization
+- Real-time AI inference with interactive overlay display
+- Brush-based editing tools for manual refinement
+- Automated clinical reporting with quantitative metrics
+
+### Inter-Component Communication
+The system operates as a cohesive pipeline where each component feeds into the next:
+1. Preprocessed real data trains the initial GAN models
+2. The mathematical simulator generates diverse synthetic masks
+3. Trained GANs convert synthetic masks into realistic images
+4. Combined real and synthetic data trains robust segmentation models
+5. The web platform deploys trained models for clinical use
+
+This integrated approach ensures that improvements in any component benefit the entire system, creating a robust solution for clinical cardiac MRI analysis.
+
+## Repository Structure
 
 ```
 GP_InfDE/
 ├── Code/
-│   ├── Data_Preprocessing/          # Image preprocessing and normalization
-│   ├── Data_Simulation_Pipeline/    # Mathematical simulator for mask generation
+│   ├── Data_Preprocessing/          # Image acquisition and preprocessing 
+│   ├── Data_Simulation_Pipeline/    # Mathematical simulator for data generation
 │   ├── GANs/                       # Pix2Pix and CycleGAN implementations
 │   ├── Segmentation/               # U-Net models and training scripts
-│   └── main.py                     # Main execution script
-├── Web_Platform/                   # React-based DICOM viewer (separate repo)
-├── docs/                          # Documentation and research papers
-├── models/                        # Trained model weights
-├── results/                       # Experimental results and visualizations
-└── requirements.txt               # Python dependencies
+│   └── Web_Platform/                   # React-based DICOM viewer
+├── Assets/                          # Documentation and Images
+└── requirements.txt               #  Dependencies
 ```
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Python 3.8+
-- CUDA-compatible GPU (recommended)
-- Node.js 16+ (for web platform)
-- Docker (optional)
+## Installation and Setup
 
 For detailed installation and setup instructions, please refer to the individual README files in each component directory:
 - [Data Preprocessing Setup](Code/Data_Preprocessing/README.md)
-- [GAN Models Setup](Code/GANs/README.md)
-- [Segmentation Models Setup](Code/Segmentation/README.md)
 - [Web Platform Setup](Web_Platform/README.md)
 
-## 📊 Results and Performance
+## Results and Performance
 
 ### Segmentation Performance (Dice Score)
 
@@ -74,12 +110,39 @@ For detailed installation and setup instructions, please refer to the individual
 | **No-Reflow Area** | **0.5376** | **0.6076** | **+13.02%** |
 | **Mean Dice Score** | **0.7793** | **0.7921** | **+1.64%** |
 
-### GAN Performance Metrics
+### GAN Model Development and Optimization
 
-| Model | FID ↓ | IS ↑ | LPIPS ↓ | PSNR ↑ |
-|-------|-------|------|---------|--------|
-| Baseline Pix2Pix | 512.4 | 1.32 | 0.682 | 10.3 |
-| **Our Final Model** | **198.15** | **2.192** | **0.5382** | **16.42** |
+Our GAN development involved extensive experimentation to achieve optimal performance. The following table shows our iterative improvement process:
+
+#### Pix2Pix Model Trials and Configurations
+
+| Trial | Key Changes | FID ↓ | IS ↑ | LPIPS ↓ | PSNR ↑ |
+|-------|-------------|-------|------|---------|--------|
+| 1 | Baseline Pix2Pix, tanh, no weighting, default U-Net + PatchGAN | 512.4 | 1.32 | 0.682 | 10.3 |
+| 2 | Baseline Pix2Pix, sigmoid, no weighting | 505.8 | 1.45 | 0.68 | 11.7 |
+| 3 | Weighted L1 loss, λ = 60, sigmoid, 7/6 layers | 423.9 | 1.75 | 0.598 | 11.4 |
+| 4 | Weighted L1 loss, λ = 70, tanh, 7/6 layers, deeper discriminator | 420.2 | 1.77 | 0.599 | 11.2 |
+| 5 | Weighted L1 loss, λ = 80, sigmoid, deeper discriminator, noise to BG | 487.8 | 1.53 | 0.643 | 10.8 |
+| 6 | λ = 90, sigmoid, instance norm, input mask removed from discriminator | 348.4 | 1.68 | 0.581 | 15.3 |
+| 7 | λ = 110, tanh, added dropout, deeper U-Net | 317.3 | 1.66 | 0.588 | 15.9 |
+| 8 | λ = 70, tanh, 6/5 layers, shallow discriminator | 310.4 | 1.71 | 0.572 | 14.4 |
+| 9 | λ = 100, tanh, 6/5 layers, mask-only discriminator | 224.2 | 1.83 | 0.566 | 15.5 |
+| **10** | **Final: λ = 100, tanh, 6/5 layers, weighted L1, dropout, standard PatchGAN discriminator (input + target, not very deep, outputs (30,30,1))** | **198.15** | **2.192** | **0.5382** | **16.42** |
+
+### Comparison with Existing GAN-Based Methods
+
+Our final model demonstrates superior performance compared to existing approaches in the literature:
+
+| Model | FID ↓ | IS ↑ | PSNR ↑ |
+|-------|-------|------|--------|
+| CycleGAN | 262.6 | 1.112 | 32.4 |
+| Pix2Pix | 244.4 | 1.714 | 30.5 |
+| U-Net++ Pix2Pix | 201.1 | 1.747 | - |
+| Differential P2P | 244.3 | 1.885 | - |
+| Joint Model | 206.3 | 1.737 | - |
+| **Our Model** | **198.15** | **2.192** | **16.42** |
+
+*Note: While our PSNR is lower due to the complexity of DE-MRI images, our model excels in perceptual quality metrics (FID, IS) which are more relevant for medical image synthesis.*
 
 ### Key Achievements
 
@@ -87,100 +150,70 @@ For detailed installation and setup instructions, please refer to the individual
 - ✅ **61% reduction** in FID score for synthetic image quality
 - ✅ **66% increase** in Inception Score for image diversity
 - ✅ **Web-based platform** for clinical integration
+- ✅ **Best-in-class performance** compared to existing GAN methods
 
-## 🔧 Technical Components
-
-### 1. Mathematical Simulator
-- **Fully Synthetic Masks**: Physiologically-based myocardium generation
-- **Hybrid Injection**: Real anatomy with synthetic pathology
-- **Cross-Subject Fusion**: Novel infarction patterns via k-NN matching
-
-### 2. GAN Models
-- **Pix2Pix**: Conditional image generation from segmentation masks
-- **CycleGAN**: Domain adaptation between cine and LGE sequences
-- **Custom Loss Functions**: Weighted L1 loss addressing class imbalance
-
-### 3. Segmentation Architecture
-- **Attention Residual U-Net**: Enhanced feature learning with attention gates
-- **Class-Weighted Loss**: Emphasis on clinically important regions
-- **Multi-Scale Processing**: 128×128 ROI extraction for efficiency
-
-### 4. Web Platform Features
-- **DICOM Compatibility**: Full study upload and visualization
-- **Interactive Editing**: Brush-based segmentation refinement
-- **AI Integration**: Real-time model inference and overlay
-- **Clinical Reporting**: Automated quantification and PDF export
-
-## 🎥 System Demonstration
+## System Demonstration
 
 ![System Demo Video](assets/project_video.gif)
 
 *Watch our comprehensive demonstration showing the complete workflow from DICOM upload to AI-powered segmentation and clinical reporting*
 
-## 🌐 Web Platform
-
-The web-based DICOM viewer provides a seamless clinical interface with the following capabilities:
-
-### Platform Features
-- 📁 **DICOM Study Management**: Upload and organize cardiac MR studies
-- 🖼️ **Multi-Series Visualization**: Side-by-side comparison of sequences
-- 🎨 **Interactive Segmentation**: Real-time editing with brush tools
-- 🤖 **AI-Powered Analysis**: Automated infarction detection and quantification
-- 📊 **Clinical Reporting**: Structured reports with quantitative metrics
-
-For detailed setup and usage instructions, see the [Web Platform README](Web_Platform/README.md).
-
-## 📄 Published Research
+## Published Research
 
 This project has resulted in comprehensive research documentation:
 
-### Conference Papers
-- **"Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation"**
-  - *Submitted to: [Conference Name]*
-  - *Status: [Under Review/Accepted/Published]*
+### Paper
+- **"Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation"**  
   - [📄 Paper PDF](docs/conference_paper.pdf)
 
-### Technical Reports
-- **"Comprehensive Technical Report: Cardiac MRI Segmentation System"**
-  - *Detailed methodology, experimental validation, and clinical evaluation*
-  - [📄 Technical Report PDF](docs/technical_report.pdf)
-
-### Research Contributions
-1. **Mathematical Simulation Framework**: Novel approach for generating realistic cardiac pathology patterns
-2. **Hybrid GAN Architecture**: Innovative combination of Pix2Pix and CycleGAN for medical image synthesis
-3. **Clinical Integration Platform**: First-of-its-kind web-based system for AI-powered cardiac MRI analysis
-4. **Performance Validation**: Comprehensive evaluation on EMIDEC dataset with clinical relevance metrics
-
-## 🔬 Research Contributions
+## Research Contributions
 
 ### Novel Methodologies
-1. **Mathematical Simulation Framework**: Systematic generation of realistic infarction patterns
-2. **Hybrid Data Augmentation**: Combination of synthetic and real data for improved generalization
-3. **Clinical Integration Platform**: Seamless AI deployment in clinical workflows
+1. **Mathematical Simulation Framework**: Novel approach for generating realistic cardiac pathology patterns
+2. **Hybrid GAN Architecture**: Innovative combination of Pix2Pix and CycleGAN for medical image synthesis
+3. **Clinical Integration Platform**: Comprehensive web-based system for AI-powered cardiac MRI analysis
+4. **Performance Validation**: Thorough evaluation on EMIDEC dataset with clinical relevance metrics
 
 ### Impact and Significance
 - **Clinical Workflow Integration**: Bridges the gap between AI research and clinical practice
 - **Data Scarcity Solution**: Addresses fundamental challenge in medical AI through synthetic data generation
 - **Performance Enhancement**: Demonstrates significant improvement in rare class segmentation (13% for no-reflow regions)
 
-## 🤝 Contributing
+## Citation
 
-We welcome contributions to improve this project! Please follow these guidelines:
+If you use this work in your research, please cite:
 
-1. **Fork the repository** and create a feature branch
-2. **Follow coding standards** (PEP 8 for Python, ESLint for JavaScript)
-3. **Add tests** for new functionality
-4. **Update documentation** as needed
-5. **Submit a pull request** with detailed description
+```bibtex
+@article{cardiac_segmentation_2024,
+  title={Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation},
+  author={Omar N. and Omar E. and Khaled M. and Hana H. and Khaled A. and Ahmed A. and Tamer B.},
+  journal={Graduation Project},
+  year={2024},
+  institution={Cairo University, Faculty of Engineering}
+}
+```
 
-### Development Setup
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
+## License
 
-# Run tests
-python -m pytest tests/
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-# Check code style
-flake8 Code/
-black Code/
+## Acknowledgments
+
+- **EMIDEC Challenge**: For providing the cardiac MRI dataset
+- **Cairo University**: Systems and Biomedical Engineering Department
+- **NIH NIDDK**: Biomedical and Metabolic Imaging Branch collaboration
+- **Open Source Community**: TensorFlow, React, and medical imaging libraries
+
+## Contact
+
+- **Project Team**: [GitHub Repository](https://github.com/hanaheshamm/GP_InfDE)
+- **Lead Developer**: Hana Hesham - [GitHub Profile](https://github.com/hanaheshamm)
+- **Institution**: Cairo University, Faculty of Engineering
+
+---
+
+**⭐ Star this repository if you find it helpful!**
+
+For questions, issues, or collaboration opportunities, please open an issue or contact the development team.
+```
+
