@@ -3,13 +3,11 @@
 
 CONFIG_PATH="/usr/src/mount_input_output/input_config_paramters.json"
 
-# If the config file is missing, copy the default from the image
 if [ ! -f "$CONFIG_PATH" ]; then
     echo "[entrypoint] Config file not found at $CONFIG_PATH, copying default."
     cp "/usr/src/app/input_config/input_config_paramters.json.default" "$CONFIG_PATH"
     echo "[entrypoint] Default config copied to $CONFIG_PATH."
 fi
 
-# ✅ Add this to run your full pipeline
 echo "[entrypoint] Running full pipeline now..."
 python /usr/src/app/run_app.py
