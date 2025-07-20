@@ -35,10 +35,10 @@ Our approach addresses critical challenges in medical AI:
 
 Our integrated pipeline consists of five interconnected modules that work together to deliver robust cardiac MRI segmentation:
 
-### 1. Data Preprocessing Pipeline
+### 1. [Data Preprocessing Pipeline](/Code/Data_Preprocessing/)
 The system begins with the EMIDEC dataset containing 100 cardiac MRI cases. Raw DICOM images undergo spatial normalization to ensure consistent 1×1×1 mm³ voxel spacing. A specialized localization network identifies and extracts 128×128 regions of interest centered on the left ventricle, reducing computational complexity while maintaining clinical relevance.
 
-### 2. Mathematical Simulator
+### 2. [Mathematical Simulator](/Code/Data_Simulation_Pipeline/)
 This innovative component generates diverse synthetic segmentation masks using three complementary strategies:
 - **Fully Synthetic Generation**: Creates physiologically realistic myocardium shapes with embedded infarction patterns
 - **Hybrid Injection**: Combines real myocardial anatomy with synthetically generated pathology
@@ -46,21 +46,21 @@ This innovative component generates diverse synthetic segmentation masks using t
 
 The simulator produces thousands of realistic mask variations, dramatically expanding the training dataset beyond the original 100 cases.
 
-### 3. GAN-Based Image Synthesis
+### 3. [GAN-Based Image Synthesis](/Code/GANs/)
 Two specialized GAN architectures transform synthetic masks into realistic cardiac MRI images:
 
 **Pix2Pix Network**: Performs conditional image-to-image translation from segmentation masks to realistic DE-MRI images. Our custom implementation uses weighted loss functions to address severe class imbalance, ensuring proper representation of rare pathological regions.
 
 **CycleGAN Network**: Enables domain adaptation between cine MRI (abundant but lacking pathology) and LGE sequences (rare but showing infarctions). This allows us to leverage larger datasets of normal cardiac images.
 
-### 4. Segmentation Models
+### 4. [Segmentation Models](/Code/Segmentation/)
 The enhanced dataset trains two complementary segmentation architectures:
 - **Attention Residual U-Net**: Custom architecture with attention gates that focus on clinically relevant regions
 - **nnU-Net**: State-of-the-art medical segmentation framework adapted for cardiac pathology detection
 
 Both models benefit from the expanded synthetic dataset, showing particular improvement in detecting rare pathological classes like no-reflow regions.
 
-### 5. Clinical Web Platform
+### 5. [Clinical Web Platform](/Code/Web_Platform/)
 The final component integrates all AI models into a production-ready web application. Built with React and Django, it provides:
 - Native DICOM file handling and visualization
 - Real-time AI inference with interactive overlay display
