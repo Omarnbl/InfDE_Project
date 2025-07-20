@@ -157,7 +157,7 @@ Our final model demonstrates superior performance compared to existing approache
 
 ## System Demonstration
 
-![System Demo Video](assets/project_video.gif)
+![System Demo Video](assets/Project_Workflow.gif)
 
 *Watch our comprehensive demonstration showing the complete workflow from DICOM upload to AI-powered segmentation and clinical reporting*
 
