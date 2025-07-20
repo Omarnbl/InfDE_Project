@@ -192,6 +192,10 @@ If you use this work in your research, please cite:
 }
 ```
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 ## Acknowledgments
 
 - **EMIDEC Challenge**: For providing the cardiac MRI dataset
@@ -207,12 +211,46 @@ Meet our dedicated development team working on this graduation project:
 
 <div align="center">
 
-| Team Member | GitHub Profile | 
-|-------------|----------------|
-| **Omar Emad** | [![GitHub](https://img.shields.io/badge/GitHub-OmarEmad101-181717?style=for-the-badge&logo=github)](https://github.com/OmarEmad101) | 
-| **Omar Nabil** | [![GitHub](https://img.shields.io/badge/GitHub-Omarnbl-181717?style=for-the-badge&logo=github)](https://github.com/Omarnbl) |
-| **Khaled Badr** | [![GitHub](https://img.shields.io/badge/GitHub-KhaledBadr07-181717?style=for-the-badge&logo=github)](https://github.com/KhaledBadr07) |
-| **Hana Hesham** | [![GitHub](https://img.shields.io/badge/GitHub-hanaheshamm-181717?style=for-the-badge&logo=github)](https://github.com/hanaheshamm) |
+<table>
+  <tr>
+    <td align="center">
+      <div style="text-align:center; margin-right:20px;">
+        <a href="https://github.com/OmarEmad101">
+          <img src="https://github.com/OmarEmad101.png" width="100px" alt="@OmarEmad101">
+          <br>
+          <sub><b>Omar Emad</b></sub>
+        </a>
+      </div>
+    </td>
+    <td align="center">
+      <div style="text-align:center; margin-right:20px;">
+        <a href="https://github.com/Omarnbl">
+          <img src="https://github.com/Omarnbl.png" width="100px" alt="@Omarnbl">
+          <br>
+          <sub><b>Omar Nabil</b></sub>
+        </a>
+      </div>
+    </td>
+    <td align="center">
+      <div style="text-align:center; margin-right:20px;">
+        <a href="https://github.com/KhaledBadr07">
+          <img src="https://github.com/KhaledBadr07.png" width="100px" alt="@KhaledBadr07">
+          <br>
+          <sub><b>Khaled Badr</b></sub>
+        </a>
+      </div>
+    </td>
+    <td align="center">
+      <div style="text-align:center; margin-right:20px;">
+        <a href="https://github.com/hanaheshamm">
+          <img src="https://github.com/hanaheshamm.png" width="100px" alt="@hanaheshamm">
+          <br>
+          <sub><b>Hana Hesham</b></sub>
+        </a>
+      </div>
+    </td>
+  </tr>
+</table>
 
 </div>
 
