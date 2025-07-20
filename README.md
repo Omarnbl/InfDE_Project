@@ -31,6 +31,17 @@ Our approach addresses critical challenges in medical AI:
 
 *Complete system workflow from data preprocessing through synthetic data generation to clinical deployment*
 
+
+## Inter-Component Communication
+The system operates as a cohesive pipeline where each component feeds into the next:
+1. Preprocessed real data trains the initial GAN models
+2. The mathematical simulator generates diverse synthetic masks
+3. Trained GANs convert synthetic masks into realistic images
+4. Combined real and synthetic data trains robust segmentation models
+5. The web platform deploys trained models for clinical use
+
+This integrated approach ensures that improvements in any component benefit the entire system, creating a robust solution for clinical cardiac MRI analysis.
+
 ## System Components and Workflow
 
 Our integrated pipeline consists of five interconnected modules that work together to deliver robust cardiac MRI segmentation:
@@ -66,16 +77,6 @@ The final component integrates all AI models into a production-ready web applica
 - Real-time AI inference with interactive overlay display
 - Brush-based editing tools for manual refinement
 - Automated clinical reporting with quantitative metrics
-
-### Inter-Component Communication
-The system operates as a cohesive pipeline where each component feeds into the next:
-1. Preprocessed real data trains the initial GAN models
-2. The mathematical simulator generates diverse synthetic masks
-3. Trained GANs convert synthetic masks into realistic images
-4. Combined real and synthetic data trains robust segmentation models
-5. The web platform deploys trained models for clinical use
-
-This integrated approach ensures that improvements in any component benefit the entire system, creating a robust solution for clinical cardiac MRI analysis.
 
 ## Repository Structure
 
