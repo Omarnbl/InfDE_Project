@@ -164,7 +164,7 @@ This project has resulted in comprehensive research documentation:
 
 ### Paper
 - **"Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation"**  
-  - [📄 Paper PDF](docs/conference_paper.pdf)
+  ![📄 Paper PDF](assets/Web-Based_Cardiac_Delayed_Enhanced_MRI_Segmentation_Using_Deep_Learning_and_Synthetic_Data_Augmentation.pdf)
 
 ## Research Contributions
 
