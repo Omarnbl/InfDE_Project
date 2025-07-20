@@ -107,12 +107,11 @@ For detailed installation and setup instructions, please refer to the individual
 
 | Class | Real Data Only | Real + GAN Data | Improvement |
 |-------|----------------|-----------------|-------------|
-| Background | 0.9891 | 0.9881 | -0.10% |
 | LV Cavity | 0.9350 | 0.9365 | +0.16% |
-| Normal Myocardium | 0.8222 | 0.8119 | -1.25% |
-| **Infarcted Myocardium** | **0.6126** | **0.6165** | **+0.64%** |
-| **No-Reflow Area** | **0.5376** | **0.6076** | **+13.02%** |
-| **Mean Dice Score** | **0.7793** | **0.7921** | **+1.64%** |
+| Normal Myocardium | 0.8222 | 0.8319 | +0.97% |
+| **Infarcted Myocardium** | **0.6126** | **0.6651** | **+5.25%** |
+| **No-Reflow Area** | **0.5376** | **0.6676** | **+13.00%** |
+| **Mean Dice Score** | **0.7268** | **0.7752** | **+4.84%** |
 
 ### GAN Model Development and Optimization
 
@@ -168,7 +167,7 @@ This project has resulted in comprehensive research documentation:
 
 ### Paper
 - **"Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation"**  
-[📄 Paper PDF](assets/Web-Based_Cardiac_Delayed_Enhanced_MRI_Segmentation_Using_Deep_Learning_and_Synthetic_Data_Augmentation.pdf)
+[📄 View PDF](assets/Web-Based%20Cardiac%20Delayed%20Enhanced%20MRI%20Segmentation%20Using%20Deep%20Learning%20and%20Synthetic%20Data%20Augmentation.pdf)
 ## Research Contributions
 
 ### Novel Methodologies
@@ -262,4 +261,3 @@ Meet our dedicated development team working on this graduation project:
 
 For questions, issues, or collaboration opportunities, please open an issue or contact the development team.
 ```
-
