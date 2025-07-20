@@ -96,7 +96,10 @@ GP_InfDE/
 
 For detailed installation and setup instructions, please refer to the individual README files in each component directory:
 - [Data Preprocessing Setup](Code/Data_Preprocessing/README.md)
-- [Web Platform Setup](Web_Platform/README.md)
+- [Data Simulation Pipeline](Code/Data_Simulation_Pipeline/readme.md)
+- [Pix2Pix GAN Setup](Code/GANs/Pix2PixGAN/README.md)
+- [Segmentation Models Setup](Code/Segmentation/Attention_Res_Unet/README.md)
+- [Web Platform Setup](Code/Web_Platform/README.md)
 
 ## Results and Performance
 
