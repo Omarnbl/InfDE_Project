@@ -184,11 +184,11 @@ This project has resulted in comprehensive research documentation:
 If you use this work in your research, please cite:
 
 ```bibtex
-@article{cardiac_segmentation_2024,
+@article{cardiac_segmentation_2025,
   title={Web-Based Cardiac Delayed Enhanced MRI Segmentation Using Deep Learning and Synthetic Data Augmentation},
   author={Omar N. and Omar E. and Khaled M. and Hana H. and Khaled A. and Ahmed A. and Tamer B.},
   journal={Graduation Project},
-  year={2024},
+  year={2025},
   institution={Cairo University, Faculty of Engineering}
 }
 ```
@@ -207,7 +207,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 - **Project Team**: [GitHub Repository](https://github.com/hanaheshamm/GP_InfDE)
-- **Lead Developer**: Hana Hesham - [GitHub Profile](https://github.com/hanaheshamm)
 - **Institution**: Cairo University, Faculty of Engineering
 
 ---
