@@ -181,6 +181,31 @@ This project has resulted in comprehensive research documentation:
 - **Data Scarcity Solution**: Addresses fundamental challenge in medical AI through synthetic data generation
 - **Performance Enhancement**: Demonstrates significant improvement in rare class segmentation (13% for no-reflow regions)
 
+## Docker Deployment
+
+To make running the full data generation pipeline simple and reproducible, we’ve provided a ready-to-use Docker image that automates the entire process — from synthetic mask generation to producing corresponding synthetic cardiac MRI images using GANs.
+
+### 🐳 Quick Start
+
+Pull and run the Docker image:
+
+```bash
+docker pull omaremad101/full_pipeline:latest
+docker run --rm -it omaremad101/full_pipeline:latest
+```
+
+### ⚙Functionality
+
+This container includes everything needed to:
+
+1. Generate diverse synthetic segmentation masks using our **mathematical simulation framework**
+2. Automatically pass the generated masks to the **Pix2Pix GAN model**
+3. Output realistic synthetic cardiac DE-MRI images corresponding to the input masks
+
+### Configuration
+
+You can control generation behavior (e.g., number of masks, generation mode, infarction severity) by specifying parameters as described in the [Mathematical Simulator README](Code/Data_Simulation_Pipeline/readme.md).
+
 ## Citation
 
 If you use this work in your research, please cite:
@@ -261,3 +286,4 @@ Meet our dedicated development team working on this graduation project:
 
 For questions, issues, or collaboration opportunities, please open an issue or contact the development team.
 ```
+
