@@ -206,7 +206,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-- **Project Team**: [GitHub Repository](https://github.com/hanaheshamm/GP_InfDE)
+- ## Project Team
+
+Meet our dedicated development team working on this graduation project:
+
+<div align="center">
+
+| Team Member | GitHub Profile | 
+|-------------|----------------|
+| **Omar Emad** | [![GitHub](https://img.shields.io/badge/GitHub-OmarEmad101-181717?style=for-the-badge&logo=github)](https://github.com/OmarEmad101) | 
+| **Omar Nabil** | [![GitHub](https://img.shields.io/badge/GitHub-Omarnbl-181717?style=for-the-badge&logo=github)](https://github.com/Omarnbl) |
+| **Khaled Badr** | [![GitHub](https://img.shields.io/badge/GitHub-KhaledBadr07-181717?style=for-the-badge&logo=github)](https://github.com/KhaledBadr07) |
+| **Hana Hesham** | [![GitHub](https://img.shields.io/badge/GitHub-hanaheshamm-181717?style=for-the-badge&logo=github)](https://github.com/hanaheshamm) |
+
+</div>
+
 - **Institution**: Cairo University, Faculty of Engineering
 
 ---
