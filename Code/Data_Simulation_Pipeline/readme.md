@@ -38,7 +38,7 @@
 ---
 # Pipeline In Full Effect
 
-![Pipeline Demo](InfDE_Project/Code/Data_Simulation_Pipeline/Resources/Untitled_design.gif)
+![Pipeline Demo](Code/Data_Simulation_Pipeline/Resources/Untitled_design.gif)
 
 # Detailed Configuration Parameters
 
