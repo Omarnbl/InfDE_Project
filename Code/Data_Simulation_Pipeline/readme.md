@@ -38,7 +38,7 @@
 ---
 # Pipeline In Full Effect
 
-![Pipeline Demo](Code/Data_Simulation_Pipeline/Resources/Untitled_design.gif)
+[Click here to view the video](https://www.canva.com/design/DAG6VISviPE/-O8OQ6CQE57dE2idyPfACg/edit?utm_content=DAG6VISviPE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 # Detailed Configuration Parameters
 
